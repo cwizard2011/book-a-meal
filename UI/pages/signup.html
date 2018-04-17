@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shrikhand&effect=emboss"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=3d|3d-float|anaglyph">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/form.css">
 
 <title>Signup Page</title>
+<link rel="icon" type="image/png" href="../images/icon.png" />
 </head>
 <body>
 <div class= "container">
+        <div class="banner">
+                <ul class="nav-bar">
+                    <li class="home font-effect-emboss"><a href="../index.html">Mealy</a></li>
+                    <nav class="nav-right">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="admin/admin.html">Caterer</a></li>
+                    </nav>
+                </ul>
+            </div>
     <div class="card">
         <header class="header">
-            <h1 class="auth-head">Signup</h1>
+            <h1 class="auth-head">New User Registration</h1>
         </header>
         <section class="sections">
             <p>Fill the form below to Signup</p>
         </section>
         <div class = "form-style-8">
             <form>
-            <input type="text" placeholder="First Name"/>
-            <input type="text" placeholder="Last Name"/>
-            <input type="email" placeholder="Email"/>
+            <input type="text" placeholder="First Name" required/>
+            <input type="text" placeholder="Last Name" required/>
+            <input type="email" placeholder="Email" required/>
             <input type="text" placeholder="Phone Number"/>
-            <input type="password" placeholder="Password"/>
+            <input type="password" placeholder="Password" required/>
             <input type="submit" value="Signup">        
             </form>
             <p>Have an account Already? <a class="link-white-background" href="login.html">Login</a> instead</p>
