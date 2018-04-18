@@ -1,0 +1,51 @@
+.menu-image {
+    height: 70px;
+    width: 70px;
+}
+.menu-list {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+}
+.send-menu {
+    background: #66d9ff;
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    margin-left: 45%;
+    margin-top: 5%;
+    width: 120px
+}
+.menu-title {
+    margin-left: 45%;
+    color: grey;
+}
+.menu-main {
+    margin-bottom: 20px;
+    padding-bottom: 5%
+}
+@media only screen and (max-width: 500px) {
+    .menu-image {
+        height: 50px;
+        width: 70px;
+    }
+    .menu-list {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20%
+    }
+    .send-menu {
+        margin-left: 25%;
+    }
+    .menu-title {
+        margin-left: 20%;
+    }
+    .menu-main {
+        margin-bottom: 20px;
+        padding-bottom: 5%
+    }
+    figcaption {
+        margin-left: 15%;
+    }
+}
