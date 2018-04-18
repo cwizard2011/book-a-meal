@@ -1,0 +1,16 @@
+.order-now {
+    background: #00a2ff;
+    border: none;
+    color: white;
+    margin-top: 5%;
+    padding: 8px
+}
+.btn-link{
+    margin-left: 20%
+}
+
+@media only screen and (max-width: 500px) {
+    .btn-link{
+        margin-left: 12%
+    }
+}
