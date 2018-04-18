@@ -25,6 +25,9 @@
     margin-bottom: 20px;
     padding-bottom: 5%
 }
+figcaption {
+    margin-left: 25%;
+}
 @media only screen and (max-width: 500px) {
     .menu-image {
         height: 50px;
@@ -46,6 +49,6 @@
         padding-bottom: 5%
     }
     figcaption {
-        margin-left: 15%;
+        margin-left: 12%;
     }
 }

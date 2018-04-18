@@ -1,3 +1,21 @@
+.btn-log{
+    width: 400px;
+    background: rgb(0, 183, 255);
+    height: 40px;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    font: 1.5em bold;
+}
+.btn-sgn{
+    width: 400px;
+    background: rgb(0, 255, 213);
+    height: 40px;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    font: 1.5em bold;
+}
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 400px;
@@ -80,8 +98,15 @@
     color: rgb(0, 162, 255)
 }
 
+
 /* Mobile Screen */
 @media only screen and (max-width: 768px) {
+    .btn-log{
+        width: 200px;
+    }
+    .btn-sgn{
+        width: 200px;
+    }
     .form-style-8{
         width: 200px;
         padding: 10px;

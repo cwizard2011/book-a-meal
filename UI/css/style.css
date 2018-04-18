@@ -96,12 +96,15 @@ li a:hover:not(.active) {
     background: #66d9ff;
     font-size: 2em;
     border: none;
-
+    padding: 5px;
+    width: 150px;
 }
 .signup-btn {
     background: #00ffc8;
     font-size: 2em;
     border: none;
+    padding: 5px;
+    width: 150px
 }
 /* Mobile Screen */
 @media only screen and (max-width: 768px) {
