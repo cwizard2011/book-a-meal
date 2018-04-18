@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shrikhand&effect=emboss">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=3d|3d-float|anaglyph">
-<link rel="stylesheet" type="text/css" href="../../css/admin/admin.css">
+<link rel="stylesheet" type="text/css" href="../../css/admin/dashboard.css">
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../css/form.css">
 
-<title>Admin Panel</title>
+<title>Caterer Dashboard</title>
 <link rel="icon" type="image/png" href="../../images/icon.png" />
 </head>
-<body class="admin-background">
+<body class="dashboard-background">
 <div class= "container">
     <div class="banner">
         <ul class="nav-bar">
-            <li class="home font-effect-emboss"><a href="../../index.html">Mealy</a></li>
+            <li class="home font-effect-emboss"><a href="#">Mealy</a></li>
             <nav class="nav-right">
-                <li><a href="adminlogin.html">Login</a></li>
-                <li><a href="adminsignup.html">Signup</a></li>
+                <li><a href="admin.html">Logout</a></li>
             </nav>
         </ul>
     </div>
-    <div class="card">
-        <header class="header">
-            <h1 class="font-effect-3d">Welcome to the Caterer Panel</h1>
-        </header>
-        <section class="sections">
-            <h1 class="font-effect-3d">Prepare a Menu</h1>
-            <p>Signup or Login Below to start cooking</p>
-        </section>
-        <div class="access-button">
-            <button class="signup-btn"><a class="link-black-background" href="adminsignup.html">SignUp</a></button>
-            <button class="login-btn"><a class="link-black-background" href="adminlogin.html">Login</a></button>
+    <div class="menu-div">
+        <div id="menu-form" class="form-style-8">
+            <h1>Add New Menu</h1>
+            <form>
+                <input id="menu" type="text" placeholder="Menu Name" />
+                <input id="price" type="number" placeholder="Price" />
+                <input id="file" type="file" name="pics" accept="image/*" />
+                <button id="add-btn">Add Menu</button>
+            </form>
+        </div>
+        <div class="menu-display">
+            <h1>My Menu</h1>
+            <div class="item">
+                    <a href="#"><div class="menu1"></div></a>
+                    <div><a>$10</a></div>
+                    <div><button class="del-btn">X</button></div>
+            </div>
+            <div class="item">
+                    <a href="#"><div class="menu2"></div></a>
+                    <div><a>$20</a></div>
+                    <div><button class="del-btn">X</button></div>
+            </div>
+            <div class="item">
+                    <a href="#"><div class="menu3"></div></a>
+                    <div><a>$35</a></div>
+                    <div><button class="del-btn">X</button></div>
+            </div>
+            <div class="item">
+                    <a href="#"><div class="menu4"></div></a>
+                    <div><a>$50</a></div>
+                    <div><button class="del-btn">X</button></div>
+            </div>
+            <button id="send-btn">Send Menu</button>
         </div>
     </div>
-    
-    
 </div>
-
 </body>
 </html> 

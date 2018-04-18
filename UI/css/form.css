@@ -10,6 +10,7 @@
 
 }
 .form-style-8 input[type="text"],
+.form-style-8 input[type="file"],
 .form-style-8 input[type="date"],
 .form-style-8 input[type="datetime"],
 .form-style-8 input[type="email"],
@@ -57,6 +58,11 @@
     margin-left: 30%;
     margin-top: 15px;
 }
+.form-style-8 input[type="file"]{
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+    border: none;
+}
 .form-style-8 input[type="button"]:hover,
 .form-style-8 input[type="submit"]:hover {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
@@ -82,6 +88,11 @@
     }
     .form-style-8 input[type="submit"]{
         font-size: 0.7em;
-        padding: 10px 11px;
+        padding: 10px px;
+    }
+    .form-style-8 input[type="file"]{
+        font: 12px Arial, Helvetica, sans-serif;
+        height: 40px;
+        border: none;
     }
 }

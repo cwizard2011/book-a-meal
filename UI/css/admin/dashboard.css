@@ -1,0 +1,114 @@
+.dashboard-background {
+    background: #ebebe0;
+}
+.menu-div {
+    display: flex;
+    justify-content: space-between;
+}
+.menu-div > div> h1 {
+    color: grey;
+    margin-left:15%;
+}
+#menu-form {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+#add-btn {
+    background: #66d9ff;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin-left: 30%;
+    margin-top: 5%;
+    padding: 15px 22px;
+}
+#send-btn {
+    background: #66d9ff;
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    margin-left: 25%;
+    margin-top: 5%;
+    width: 120px
+}
+.menu-display{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
+    margin-top: 5%
+}
+.menu-display> h1{
+    margin-left: 20%;
+    margin-top: 5%
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    font-size: 2em;
+    padding-bottom: 10px
+}
+.menu-link {
+    color: blue;
+}
+.menu1 {
+    background: url('../../images/menu1.jpeg');
+    width: 50px;
+    height:50px;
+    background-size: cover
+}
+.menu2 {
+    background: url('../../images/menu2.jpeg');
+    width: 50px;
+    height:50px;
+    background-size: cover
+}
+.menu3 {
+    background: url('../../images/menu3.jpeg');
+    width: 50px;
+    height:50px;
+    background-size: cover
+}
+.menu4 {
+    background: url('../../images/menu4.jpeg');
+    width: 50px;
+    height:50px;
+    background-size: cover
+}
+.del-btn {
+    background: rgba(255, 0, 0, 0.973);
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+@media only screen and (max-width: 768px) {
+    .menu-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .menu-div > div> h1 {
+        font-size: 1.5em;
+        margin-left:5%;
+    }
+    #menu-form {
+        margin-left:10%;
+        margin-top: 5%;
+    }
+    #add-btn {
+        margin-left: 15%;
+    }
+    .menu-display{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .item {
+        display: flex;
+        justify-content: space-around;
+        width: 300px;
+        font-size: 1.5em;
+        padding-bottom: 10px
+    }
+}
