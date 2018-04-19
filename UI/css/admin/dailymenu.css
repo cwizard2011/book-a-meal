@@ -2,13 +2,6 @@
     height: 100px;
     width: 100px;
 }
-.summ-list {
-    background:#ffa64d;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5%;
-    height: 70px;
-}
 .menu-list {
     display: flex;
     justify-content: space-around;
@@ -16,13 +9,20 @@
 }
 .send-menu {
     background: #ff8000;
-    font-size: 16px;
     border: none;
+    font-size: 16px;
     color: white;
     padding: 15px 10px;
     margin-left: 45%;
     margin-top: 5%;
     width: 120px
+}
+.summ-list {
+    background:#ffa64d;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+    height: 70px;
 }
 .menu-title {
     margin-left: 40%;

@@ -1,6 +1,6 @@
 .admin-background {
-    background-image: url('../../images/caterer.jpg');
     background-color: aquamarine;
+    background-image: url('../../images/caterer.jpg');
     background-size: cover;
 }
 
