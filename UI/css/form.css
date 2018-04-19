@@ -120,4 +120,14 @@
         height: 40px;
         border: none;
     }
+    .auth-head {
+        margin-left: 28%;
+        
+    }
 }
+@media only screen and (max-width: 600px) {
+    .auth-head {
+        margin-left: 5%;
+        
+    }
+    }

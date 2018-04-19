@@ -26,6 +26,8 @@
     margin-right: 5%;
     width: 430px;
     margin-top: 0 auto;
+    margin-bottom:10%;
+    padding-bottom: 10%
 }
 .back-btn{
     background: rgb(0, 255, 234);
@@ -52,7 +54,8 @@
     margin-left: 40%;
     color: grey;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (min-width: 375px) 
+and (max-width: 500px) {
     .btn-link{
         margin-left: 12%
     }
@@ -99,7 +102,8 @@
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px)
+and (max-width: 768px) {
     .order-summ {
         margin-left: 20%;
         width: 400px;
@@ -114,6 +118,35 @@
     }
     .confbtn{
         margin-left:25%;
+        margin-right: 5%;
+        width: 350px;
+    }
+    .back-btn{
+        width: 150px;
+        font: 1.2em bold;
+    }
+    .confirm-btn{
+        width: 150px;
+        font: 1.2em bold;
+        
+    }
+}
+@media only screen and (min-width: 800px)
+and (max-width: 1024px) {
+    .order-summ {
+        margin-left: 25%;
+        width: 400px;
+    }
+    .order-title{
+        margin-left: 35%;
+        font-size: 1.2em;
+        margin-top: 10%
+    }
+    .main-head {
+        margin-left: 30%;
+    }
+    .confbtn{
+        margin-left:30%;
         margin-right: 5%;
         width: 350px;
     }

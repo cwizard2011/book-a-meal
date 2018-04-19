@@ -16,13 +16,12 @@
 <body class="dashboard-background">
 <div class= "container">
     <div class="banner">
-        <ul class="nav-bar">
-            <li class="home font-effect-emboss"><a href="#">Mealy</a></li>
-            <nav class="nav-right">
-                <li><a href="admin.html">Logout</a></li>
-                <li><a href="adminDashboard.html">Add Menu</a></li>
-            </nav>
-        </ul>
+        <div class= "nav-bar" id="topNav">
+            <a class="home font-effect-emboss" href="#">Mealy</a>
+            <a href="admin.html">Logout</a>
+            <a href="adminDashboard.html">Add Menu</a>
+            <a href="javascript:void(0);" class="nav-icon" onclick="resNav()">&#9776;</a>
+        </div>
     </div>
         <div class="menu-main">
             <h1 class="menu-title">My Menu</h1>
@@ -86,5 +85,6 @@
             </div>
     </div>
 </div>
+<script src="../../js/nav.js"></script> 
 </body>
 </html> 

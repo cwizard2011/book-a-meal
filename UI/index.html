@@ -5,21 +5,19 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shrikhand&effect=emboss">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=3d|3d-float|anaglyph">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-
 <title>Book A meal</title>
 <link rel="icon" type="image/png" href="images/icon.png" />
 </head>
 <body>
 <div class= "container">
     <div class="banner">
-        <ul class="nav-bar">
-            <li class="home font-effect-emboss"><a href="index.html">Mealy</a></li>
-            <nav class="nav-right">
-                <li><a href="pages/login.html">Login</a></li>
-                <li><a href="pages/signup.html">Register</a></li>
-                <li><a href="pages/admin/admin.html">Caterer</a></li>
-            </nav>
-        </ul>
+        <div class= "nav-bar" id="topNav">
+            <a class="home font-effect-emboss" href="index.html">Mealy</a>
+            <a href="pages/login.html">Login</a>
+            <a href="pages/signup.html">Register</a>
+            <a href="pages/admin/admin.html">Caterer</a>
+            <a href="javascript:void(0);" class="nav-icon" onclick="resNav()">&#9776;</a>
+        </div>
     </div>
     <div class="card">
         <header class="header">
@@ -37,6 +35,6 @@
     
     
 </div>
-
+<script src="js/nav.js"></script> 
 </body>
 </html> 
