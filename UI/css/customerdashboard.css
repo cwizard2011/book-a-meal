@@ -54,6 +54,16 @@
     margin-left: 40%;
     color: grey;
 }
+.order-hist{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 3%;
+    color: grey;
+}
+.order-hist>p {
+    margin-left: 3%;
+    margin-right: 7%
+}
 @media only screen and (min-width: 375px) 
 and (max-width: 500px) {
     .btn-link{
@@ -88,7 +98,7 @@ and (max-width: 500px) {
         color: white;
         width: 130px;
         height: 50px;
-        font: 1em bold;
+        font-size: 1em;
         cursor: pointer;
     }
     .confirm-btn{
@@ -97,8 +107,21 @@ and (max-width: 500px) {
         color: white;
         width: 130px;
         height: 50px;
-        font: 1em bold;
+        font-size: 1em;
         cursor: pointer;
+    }
+    .order-hist{
+        display: flex;
+        justify-content: space-evenly;
+        padding-right: 1%
+    }
+    .order-hist>h1{
+        font-size: 1em;
+    }
+    .order-hist>p {
+       font-size: 0.8em;
+       margin-right: 10%;
+       padding-right: 1%
     }
 }
 
