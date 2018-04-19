@@ -1,77 +1,91 @@
 .dashboard-background {
     background:  #ffffcc;
 }
-
-#menu-form {
-    margin-left: 30%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    background: white;
-}
-#add-btn {
-    background: #66d9ff;
-    font-size: 16px;
+.del-btn {
+    background: rgba(255, 0, 0, 0.973);
     border: none;
     color: white;
-    margin-left: 30%;
-    margin-top: 5%;
-    padding: 15px 22px;
+    font-size: 1em;
+    font-weight: bold;
+    height: 40px;
+    line-height: 30px;
+    width: 100px;
 }
-#send-btn {
-    background: #66d9ff;
-    font-size: 16px;
-    border: none;
-    color: white;
-    padding: 15px 10px;
-    margin-left: 25%;
-    margin-top: 5%;
-    width: 120px
+.item {
+    display: flex;
+    font-size: 2em;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    width: 300px;
+}
+.menu1 {
+    height:50px;
+    background-size: cover;
+    width: 50px;
 }
 .menu-display{
-    width: 700px;
-    margin-top: 5%
+    margin-top: 5%;
+    width: 700px; 
 }
 .menu-display> h1{
     margin-left: 20%;
     margin-top: 5%
 }
-.item {
-    display: flex;
-    justify-content: space-between;
-    width: 300px;
-    font-size: 2em;
-    padding-bottom: 10px
-}
 .menu-link {
     color: blue;
-}
-.menu1 {
-    width: 50px;
-    height:50px;
-    background-size: cover
-}
-.del-btn {
-    background: rgba(255, 0, 0, 0.973);
-    border: none;
-    height: 40px;
-    width: 100px;
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
-    line-height: 30px;
-}
-.tablediv{
-    margin-top: 8%;
-    margin-bottom: 5%;
 }
 .table-cap {
     font-size: 1.2em;
     background: #ffb3ff;
     padding-bottom: 0 auto;
 }
+.tablediv{
+    margin-bottom: 5%;
+    margin-top: 8%;
+}
+#add-btn {
+    background: #66d9ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 30%;
+    margin-top: 5%;
+    padding: 15px 22px;
+}
+#menu-form {
+    background: white;
+    margin-bottom: 10%;
+    margin-left: 30%;
+    margin-top: 5%;
+    
+    
+}
+#send-btn {
+    background: #66d9ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 25%;
+    margin-top: 5%;
+    padding: 15px 10px;
+    width: 120px
+}
+
 @media only screen and (max-width: 500px) {
     h1 {
         font-size: 1.2em;
+    }
+    .item {
+        display: flex;
+        font-size: 1.5em;
+        justify-content: space-around;
+        width: 300px;
+        padding-bottom: 10px
+    }
+    .menu-display{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .menu-div {
         display: flex;
@@ -82,33 +96,22 @@
         font-size: 1.5em;
         margin-left:5%;
     }
-    #menu-form {
-        margin-left:10%;
-        margin-top: 5%;
-    }
-    #add-btn {
-        margin-left: 15%;
-    }
-    .menu-display{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .item {
-        display: flex;
-        justify-content: space-around;
-        width: 300px;
-        font-size: 1.5em;
-        padding-bottom: 10px
-    }
     .table-cap {
-        font-size: 1em;
         background: #ffb3ff;
+        font-size: 1em;
         padding-bottom: 0 auto;
     }
     .tablediv{
         margin-top: 10%;
     }
+    #add-btn {
+        margin-left: 15%;
+    }
+    #menu-form {
+        margin-left:10%;
+        margin-top: 5%;
+    }
+    
 }
     @media only screen and (min-width: 501px)
     and (max-width: 812px) {

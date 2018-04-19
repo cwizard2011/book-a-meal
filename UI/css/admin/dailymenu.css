@@ -1,3 +1,9 @@
+.date{
+    margin-left: 7%
+}
+figcaption {
+    margin-left: 25%;
+}
 .menu-image {
     height: 100px;
     width: 100px;
@@ -7,38 +13,36 @@
     justify-content: space-around;
     margin-bottom: 5%;
 }
+.menu-main {
+    margin-bottom: 20px;
+    padding-bottom: 5%
+}
+.menu-title {
+    color: grey;
+    margin-left: 40%;
+}
 .send-menu {
     background: #ff8000;
     border: none;
-    font-size: 16px;
     color: white;
-    padding: 15px 10px;
+    font-size: 16px;
     margin-left: 45%;
     margin-top: 5%;
+    padding: 15px 10px;
     width: 120px
 }
 .summ-list {
     background:#ffa64d;
     display: flex;
+    height: 70px;
     justify-content: space-around;
     margin-bottom: 5%;
-    height: 70px;
 }
-.menu-title {
-    margin-left: 40%;
-    color: grey;
-}
-.menu-main {
-    margin-bottom: 20px;
-    padding-bottom: 5%
-}
-figcaption {
-    margin-left: 25%;
-}
-.date{
-    margin-left: 7%
-}
+
 @media only screen and (max-width: 500px) {
+    figcaption {
+        margin-left: 12%;
+    }
     .menu-image {
         height: 50px;
         width: 70px;
@@ -48,23 +52,20 @@ figcaption {
         flex-direction: column;
         margin-left: 20%
     }
-    .summ-list {
-        display: flex;
-        flex-direction: column;
-        margin-left: 20%
-    }
-    .send-menu {
-        margin-left: 25%;
-    }
-    .menu-title {
-        margin-left: 20%;
-        font-size: 1.2em;
-    }
     .menu-main {
         margin-bottom: 20px;
         padding-bottom: 5%
     }
-    figcaption {
-        margin-left: 12%;
+    .menu-title {
+        font-size: 1.2em;
+        margin-left: 20%;
+    }
+    .send-menu {
+        margin-left: 25%;
+    }
+    .summ-list {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20%
     }
 }

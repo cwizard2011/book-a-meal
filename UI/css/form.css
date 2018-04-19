@@ -1,20 +1,24 @@
-.btn-log{
-    width: 400px;
-    background: rgb(0, 183, 255);
-    height: 40px;
+.auth-head {
     color: whitesmoke;
+    margin-left: 5%;
+}
+.btn-log{
+    background: rgb(0, 183, 255);
     border: none;
+    color: whitesmoke;
     cursor: pointer;
     font: 1.5em bold;
+    height: 40px;
+    width: 400px; 
 }
 .btn-sgn{
-    width: 400px;
     background: rgb(0, 255, 213);
-    height: 40px;
-    color: whitesmoke;
     border: none;
+    color: whitesmoke;
     cursor: pointer;
     font: 1.5em bold;
+    height: 40px;
+    width: 400px;  
 }
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
@@ -86,10 +90,7 @@
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
 }
-.auth-head {
-    color: whitesmoke;
-    margin-left: 5%;
-}
+
 .login-head {
     font-family: Lobster;
     color: whitesmoke;
@@ -102,8 +103,10 @@
 
 
 /* Mobile Screen */
-@media only screen and (max-width: 768px)
-{
+@media only screen and (max-width: 768px){
+    .auth-head {
+        margin-left: 7%;
+    }
     .btn-log{
         width: 200px;
     }
@@ -122,9 +125,6 @@
         font: 12px Arial, Helvetica, sans-serif;
         height: 40px;
         border: none;
-    }
-    .auth-head {
-        margin-left: 7%;
     }
     .login-head {
         font-size: 1.5em;

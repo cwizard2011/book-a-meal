@@ -1,3 +1,52 @@
+.back-btn{
+    background: rgb(0, 255, 234);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font: 1.5em bold;
+    height: 50px;
+    width: 190px;
+}
+.btn-link{
+    margin-left: 20%
+}
+.confbtn{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom:10%;
+    margin-left:33%;
+    margin-right: 5%;
+    margin-top: 0 auto;
+    padding-bottom: 10%;
+    width: 430px;
+}
+.confirm-btn{
+    background: rgba(0, 110, 255, 0.795);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font: 1.5em bold;
+    height: 50px;
+    width: 190px;
+}
+.confirm-btn>a, .back-btn > a{
+    color: white;
+}
+.main-head {
+    color: grey;
+    margin-left: 25%;
+}
+.order-hist{
+    color: grey;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 3%;
+    
+}
+.order-hist>p {
+    margin-left: 3%;
+    margin-right: 7%
+}
 .order-now {
     background: #ff8000;
     border: none;
@@ -5,158 +54,104 @@
     margin-top: 5%;
     padding: 8px
 }
-.btn-link{
-    margin-left: 20%
-}
 .order-summ {
     display: flex;
     justify-content: space-around;
-    margin-left: 35%;
-    width: 400px;
     background: white;
     font: 1.5em bold;
+    margin-left: 35%;
+    width: 400px;
 }
 .order-title{
     margin-left: 40%;
 }
-.confbtn{
-    display: flex;
-    justify-content: space-around;
-    margin-left:33%;
-    margin-right: 5%;
-    width: 430px;
-    margin-top: 0 auto;
-    margin-bottom:10%;
-    padding-bottom: 10%
-}
-.back-btn{
-    background: rgb(0, 255, 234);
-    border: none;
-    color: white;
-    width: 190px;
-    height: 50px;
-    font: 1.5em bold;
-    cursor: pointer;
-}
-.confirm-btn{
-    background: rgba(0, 110, 255, 0.795);
-    border: none;
-    color: white;
-    width: 190px;
-    height: 50px;
-    font: 1.5em bold;
-    cursor: pointer;
-}
-.confirm-btn>a, .back-btn > a{
-    color: white;
-}
-.main-head {
-    margin-left: 25%;
-    color: grey;
-}
 .sub-head {
+    color: grey;
     margin-left: 35%;
-    color: grey;
-}
-.order-hist{
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 3%;
-    color: grey;
-}
-.order-hist>p {
-    margin-left: 3%;
-    margin-right: 7%
-}
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
 }
 
- th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-    background:#ffa64d
+table {
+    border-collapse: collapse;
+    font-family: arial, sans-serif;
+    width: 100%;
+    
 }
 td {
 	border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
     height: 70px;
+    padding: 8px;
+    text-align: center;
 }
-
+th {
+   background:#ffa64d;
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;  
+}
 tr:nth-child(even) {
     background-color: #ffb3ff;
 }
 @media only screen and (min-width: 284px) 
 and (max-width: 500px) {
-    .btn-link{
-        margin-left: 12%
-    }
-    .order-summ {
-        display: flex;
-        justify-content: space-around;
-        margin-left: 10%;
-        width: 300px;
-        background: white;
-        font: 1em;
-    }
-    .order-title{
-        margin-left: 15%;
-    }
-    .main-head {
-        margin-left: 10%;
-        font-size: 1.5em;
-    }
-    .sub-head {
-        margin-left: 20%;
-    }
-    .confbtn{
-        display: flex;
-        justify-content: space-around;
-        margin-left:10%;
-        margin-right: 5%;
-        width: 300px;
-        margin-top: 0 auto;
-        margin-bottom: 5%
-    }
     .back-btn{
         background: rgb(0, 255, 234);
         border: none;
         color: white;
-        width: 130px;
-        height: 50px;
-        font-size: 1em;
         cursor: pointer;
+        font-size: 1em;
+        height: 50px;
+        width: 130px;  
+    }
+    .btn-link{
+        margin-left: 12%
+    }
+    .confbtn{
+        margin-bottom: 5%;
+        margin-left:10%;
+        margin-right: 5%;
+        width: 300px;
     }
     .confirm-btn{
-        background: rgba(0, 110, 255, 0.795);
-        border: none;
-        color: white;
-        width: 130px;
-        height: 50px;
-        font-size: 1em;
         cursor: pointer;
-    }
-    .order-hist{
-        display: flex;
-        justify-content: space-evenly;
-        padding-right: 1%
-    }
-    .order-hist>h1{
         font-size: 1em;
+        height: 50px;
+        width: 130px;   
     }
-    .order-hist>p {
-       font-size: 0.8em;
-       margin-right: 10%;
-       padding-right: 1%
+    .main-head {
+        font-size: 1.5em;
+        margin-left: 10%;
+    }
+    .order-summ {
+        font: 1em;
+        margin-left: 10%;
+        width: 300px;
+    }
+    .order-title{
+        margin-left: 15%;
+    }
+    
+    .sub-head {
+        margin-left: 20%;
+    }
+    td {
+        height: 50px;
+        padding: 1px;
+    }
+    th {
+        padding: 1px;
     }
 }
 
 @media only screen and (min-width: 600px)
 and (max-width: 768px) {
+    .confbtn{
+        margin-left:25%;
+        margin-right: 5%;
+        width: 350px;
+    }
+    .main-head {
+        margin-left: 25%;
+    }
     .order-summ {
         margin-left: 20%;
         width: 400px;
@@ -166,56 +161,40 @@ and (max-width: 768px) {
         font-size: 1.2em;
         margin-top: 10%
     }
-    .main-head {
-        margin-left: 25%;
-    }
     .sub-head {
         margin-left: 35%;
     }
-    .confbtn{
-        margin-left:25%;
-        margin-right: 5%;
-        width: 350px;
-    }
-    .back-btn{
-        width: 150px;
-        font: 1.2em bold;
-    }
-    .confirm-btn{
-        width: 150px;
-        font: 1.2em bold;
-        
-    }
+    
 }
 @media only screen and (min-width: 800px)
 and (max-width: 1024px) {
-    .order-summ {
-        margin-left: 25%;
-        width: 400px;
-    }
-    .order-title{
-        margin-left: 35%;
-        font-size: 1.2em;
-        margin-top: 10%
-    }
-    .main-head {
-        margin-left: 30%;
-    }
-    .sub-head {
-        margin-left: 35%;
+    .back-btn{
+        width: 150px;
+        font: 1.2em bold;
     }
     .confbtn{
         margin-left:30%;
         margin-right: 5%;
         width: 350px;
     }
-    .back-btn{
-        width: 150px;
-        font: 1.2em bold;
-    }
     .confirm-btn{
         width: 150px;
         font: 1.2em bold;
         
+    }
+    .order-summ {
+        margin-left: 25%;
+        width: 400px;
+    }
+    .order-title{
+        font-size: 1.2em;
+        margin-left: 35%;
+        margin-top: 10%
+    }
+    .main-head {
+        margin-left: 30%;
+    }
+    .sub-head {
+        margin-left: 35%;
     }
 }

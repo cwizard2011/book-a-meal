@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shrikhand&effect=emboss">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=3d|3d-float|anaglyph">
-<link rel="stylesheet" type="text/css" href="../../css/admin/dashboard.css">
-<link rel="stylesheet" type="text/css" href="../../css/admin/dailymenu.css">
-<link rel="stylesheet" type="text/css" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../css/form.css">
-<link rel="stylesheet" type="text/css" href="../../css/customerdashboard.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shrikhand&effect=emboss">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=3d|3d-float|anaglyph">
+        <link rel="stylesheet" type="text/css" href="../../css/admin/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="../../css/admin/dailymenu.css">
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../css/form.css">
+        <link rel="stylesheet" type="text/css" href="../../css/customerdashboard.css">
 
-<title>Order Summary</title>
-<link rel="icon" type="image/png" href="../../images/icon.png" />
-</head>
-<body class="dashboard-background">
-    <div class="banner">
-        <div class= "nav-bar" id="topNav">
-            <a class="home font-effect-emboss" href="./adminDashboard.html">Mealy</a>
-            <a href="admin.html">Logout</a>
-            <a href="dailymenu.html">Send Menu</a>
-            <a href="ordersummary.html">View Sales</a>
-            <a href="#"><i style="font-size:24px" class="fa">&#xf2c0; Welcome Peter</i></a>
-            <a href="javascript:void(0);" class="nav-icon" onclick="resNav()">&#9776;</a>
+        <title>Order Summary</title>
+        <link rel="icon" type="image/png" href="../../images/icon.png" />
+    </head>
+    <body class="dashboard-background">
+        <div class="banner">
+            <div class= "nav-bar" id="topNav">
+                <a class="home font-effect-emboss" href="./adminDashboard.html">Mealy</a>
+                <a href="admin.html">Logout</a>
+                <a href="dailymenu.html">Send Menu</a>
+                <a href="ordersummary.html">View Sales</a>
+                <a href="#"><i style="font-size:24px" class="fa">&#xf2c0; Welcome Peter</i></a>
+                <a href="javascript:void(0);" class="nav-icon" onclick="resNav()">&#9776;</a>
+            </div>
         </div>
-    </div>
-<div class= "container">
-        <div class="menu-main">
-            <h1 class="main-head">Below is the Summary of the order for the day</h1>
-            
-            <div class="sub-head">
-                <p>Pick a date below to view your sales for the day</p>
-                <label>Date</label>
-                <input type="date" name="orderdate" value="2017-06-01"/>
-           </div>
-           <h1 class="main-head">You make <em>3</em> sales today totalling <em>$108</em></h1>
+        <div class= "container">
+            <div class="menu-main">
+                <h1 class="main-head">Below is the Summary of the order for the day</h1>
+                    
+                <div class="sub-head">
+                    <p>Pick a date below to view your sales for the day</p>
+                    <label>Date</label>
+                    <input type="date" name="orderdate" value="2017-06-01"/>
+                </div>
+                <h1 class="main-head">You make <em>3</em> sales today totalling <em>$108</em></h1>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Menu</th>
+                        <th>Details</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td>#13859</td>
+                        <td>Organic Tomato</td>
+                        <td>Grill pepper, gizzard, tomato, chicken</td>
+                        <td>2</td>
+                        <td>$30</td>
+                    
+                    </tr>
+                    <tr>
+                        <td>#13769</td>
+                        <td>Chicken Franchino</td>
+                        <td>Chicken, turkey, chilli pepper</td>
+                        <td>1</td>
+                        <td>$45</td>
+                    </tr>
+                    <tr>
+                        <td>#13839</td>
+                        <td>Yam Source</td>
+                        <td>Yam, tomatoe, egg, fish and gizzard</td>
+                        <td>1</td>
+                        <td>$33</td>
+                    </tr>
+            </table>
+            </div>       
         </div>
-      <div>
-        <table>
-          <tr>
-            <th>Order Id</th>
-            <th>Menu</th>
-            <th>Details</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-            <tr>
-                <td>#13859</td>
-                <td>Organic Tomato</td>
-                <td>Grill pepper, gizzard, tomato, chicken</td>
-                <td>2</td>
-                <td>$30</td>
-              
-            </tr>
-            <tr>
-              <td>#13769</td>
-              <td>Chicken Franchino</td>
-              <td>Chicken, turkey, chilli pepper</td>
-              <td>1</td>
-              <td>$45</td>
-            </tr>
-            <tr>
-              <td>#13839</td>
-              <td>Yam Source</td>
-              <td>Yam, tomatoe, egg, fish and gizzard</td>
-              <td>1</td>
-              <td>$33</td>
-            </tr>
-      </table>
-    </div>
-        
-</div>
-<script src="../../js/nav.js"></script> 
-</body>
+        <script src="../../js/nav.js"></script> 
+    </body>
 </html> 
