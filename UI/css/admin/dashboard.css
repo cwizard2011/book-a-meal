@@ -1,17 +1,12 @@
 .dashboard-background {
-    background: #ebebe0;
+    background:  #ffffcc;
 }
-.menu-div {
-    display: flex;
-    justify-content: space-between;
-}
-.menu-div > div> h1 {
-    color: grey;
-    margin-left:15%;
-}
+
 #menu-form {
-    margin-left: 5%;
+    margin-left: 30%;
     margin-top: 5%;
+    margin-bottom: 10%;
+    background: white;
 }
 #add-btn {
     background: #66d9ff;
@@ -33,9 +28,7 @@
     width: 120px
 }
 .menu-display{
-    display: flex;
-    flex-direction: column;
-    margin-right: 10%;
+    width: 700px;
     margin-top: 5%
 }
 .menu-display> h1{
@@ -53,34 +46,28 @@
     color: blue;
 }
 .menu1 {
-    background: url('../../images/menu1.jpeg');
-    width: 50px;
-    height:50px;
-    background-size: cover
-}
-.menu2 {
-    background: url('../../images/menu2.jpeg');
-    width: 50px;
-    height:50px;
-    background-size: cover
-}
-.menu3 {
-    background: url('../../images/menu3.jpeg');
-    width: 50px;
-    height:50px;
-    background-size: cover
-}
-.menu4 {
-    background: url('../../images/menu4.jpeg');
     width: 50px;
     height:50px;
     background-size: cover
 }
 .del-btn {
     background: rgba(255, 0, 0, 0.973);
-    width: 30px;
-    height: 30px;
     border: none;
+    height: 40px;
+    width: 100px;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 30px;
+}
+.tablediv{
+    margin-top: 8%;
+    margin-bottom: 5%;
+}
+.table-cap {
+    font-size: 1.2em;
+    background: #ffb3ff;
+    padding-bottom: 0 auto;
 }
 @media only screen and (max-width: 500px) {
     .menu-div {
@@ -111,4 +98,18 @@
         font-size: 1.5em;
         padding-bottom: 10px
     }
+    .table-cap {
+        font-size: 1em;
+        background: #ffb3ff;
+        padding-bottom: 0 auto;
+    }
+    .tablediv{
+        margin-top: 10%;
+    }
+}
+    @media only screen and (min-width: 501px)
+    and (max-width: 812px) {
+        #menu-form {
+            margin-left: 20%;
+        }
 }

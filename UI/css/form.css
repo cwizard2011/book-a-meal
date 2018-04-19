@@ -91,8 +91,10 @@
     margin-left: 5%;
 }
 .login-head {
+    font-family: Lobster;
     color: whitesmoke;
-    margin-left: 20%
+    float: center;
+    margin-left: 10%;
 }
 .link-white-background {
     color: rgb(0, 162, 255)
@@ -100,7 +102,8 @@
 
 
 /* Mobile Screen */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px)
+{
     .btn-log{
         width: 200px;
     }
@@ -121,13 +124,18 @@
         border: none;
     }
     .auth-head {
-        margin-left: 28%;
-        
+        margin-left: 7%;
+    }
+    .login-head {
+        font-size: 1.5em;
     }
 }
 @media only screen and (max-width: 600px) {
     .auth-head {
-        margin-left: 5%;
+        margin-left: 3%
         
+    }
+    .login-head {
+        font-size: 1.2em;
     }
     }

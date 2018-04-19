@@ -1,6 +1,13 @@
 .menu-image {
+    height: 100px;
+    width: 100px;
+}
+.summ-list {
+    background:#ffa64d;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
     height: 70px;
-    width: 70px;
 }
 .menu-list {
     display: flex;
@@ -8,7 +15,7 @@
     margin-bottom: 5%;
 }
 .send-menu {
-    background: #66d9ff;
+    background: #ff8000;
     font-size: 16px;
     border: none;
     color: white;
@@ -28,6 +35,9 @@
 figcaption {
     margin-left: 25%;
 }
+.date{
+    margin-left: 7%
+}
 @media only screen and (max-width: 500px) {
     .menu-image {
         height: 50px;
@@ -38,11 +48,17 @@ figcaption {
         flex-direction: column;
         margin-left: 20%
     }
+    .summ-list {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20%
+    }
     .send-menu {
         margin-left: 25%;
     }
     .menu-title {
         margin-left: 20%;
+        font-size: 1.2em;
     }
     .menu-main {
         margin-bottom: 20px;
