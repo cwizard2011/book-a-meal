@@ -20,7 +20,7 @@ body {
 }
 .banner {
     background-color: #333;
-    padding-bottom: 10px;
+    padding: 5px;
     width: 100%;
 }
 .card {
@@ -44,12 +44,10 @@ body {
     font-family: Lobster;
     font-size: 20px;
     padding-bottom: 0 auto;
-    margin-left: 10%;
+    text-align: center;
     height: 50px
 }
 .home {
-    font-size: 2em;
-    margin-bottom: 3px;
     font-family: Shrikhand;
 }
 .mob-title{
@@ -63,31 +61,84 @@ body {
 }
 .sections>p {
     font-size: 1.5em;
-    margin-left: 5px;
+    text-align: center;
     color: whitesmoke;
 }
 .sections>h1 {
     font-size: 2em;
-    margin-left: 10px; 
+    text-align: center; 
 }
 
 .login-btn {
-    background: #66d9ff;
+    background: #ff471a;
+    border-radius: 4px;
     color: white;
-    font-size: 2em;
+    cursor: pointer;
+    font-size: 28px;
     border: none;
     padding: 5px;
+    transition: all 0.5s;
     width: 150px;
 }
+.login-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .login-btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .login-btn:hover span {
+    padding-right: 25px;
+  }
+  
+  .login-btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
 .signup-btn {
-    background: #00ffc8;
+    background: #53ff1a;
+    border-radius: 4px;
     color: white;
-    font-size: 2em;
+    cursor: pointer;
+    font-size: 28px;
     border: none;
-    margin-right: 30px;
     padding: 5px;
+    transition: all 0.5s;
     width: 150px;
 }
+.signup-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .signup-btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .signup-btn:hover span {
+    padding-right: 25px;
+  }
+  
+  .signup-btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
 .nav-bar {
     overflow: hidden;
     background-color: #333;
@@ -103,11 +154,10 @@ body {
     font-size: 17px;
 }
   
-.nav-bar a:hover {
+.nav-bar a:hover:not(:first-child) {
     background-color: #ddd;
     color: black;
 }
-  
 .nav-bar .nav-icon{
     display: none;
   }
@@ -132,9 +182,10 @@ body {
         text-align: left;
       }
       .mob-title{
+          padding-left: 10px;
           display: inline-block;
           color: white;
-          margin-left: 7%;
+          text-align: center;
       }
     body{
         background-size: cover;
@@ -166,13 +217,11 @@ body {
     }
     .sections>p {
         font-size: 0.6em;
-        margin-left: 2px;
         height: 20px;
         padding: 3px;
     }
     .sections>h1 {
         font-size: 1.2em;
-        margin-left: 0;
         height: 20px;
     }
     .login-btn {
@@ -233,19 +282,17 @@ and (max-width:1000px) {
     }
     .header>h1 {
         font-size: 1.5em;
-        margin-left: 7%;
         height: 20px;
         margin-bottom: 5%
     }
     .sections>p {
         font-size: 1em;
-        margin-left: 2px;
+        text-align: center;
         height: 20px;
         padding: 3px;
     }
     .sections>h1 {
         font-size: 1em;
-        margin-left: 0;
         height: 20px;
     }
     .login-btn {

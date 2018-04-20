@@ -3,22 +3,34 @@
     margin-left: 5%;
 }
 .btn-log{
-    background: rgb(0, 183, 255);
+    background: #ff471a;
     border: none;
     color: whitesmoke;
     cursor: pointer;
     font: 1.5em bold;
     height: 40px;
-    width: 400px; 
+    width: 400px;
+    transition: all 0.5s;
+}
+.btn-log:hover{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
 }
 .btn-sgn{
-    background: rgb(0, 255, 213);
+    background: #53ff1a;
     border: none;
     color: whitesmoke;
     cursor: pointer;
     font: 1.5em bold;
     height: 40px;
-    width: 400px;  
+    width: 400px;
+    transition: all 0.5s 
+}
+.btn-sgn:hover{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
 }
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
@@ -130,7 +142,7 @@
         font-size: 1.5em;
     }
 }
-@media only screen and (min-width: 320px) and (max-width: 360px) {
+@media only screen and (min-width: 320px) and (max-width: 560px) {
     .auth-head {
         margin-left: 3%
         
