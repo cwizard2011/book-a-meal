@@ -72,6 +72,11 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .del-btn{
+        font-size: 0.7em;
+        height: 30px;
+        width: 90px;
+    }
     h1 {
         font-size: 1.2em;
     }
