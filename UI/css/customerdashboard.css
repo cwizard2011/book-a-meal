@@ -48,6 +48,7 @@
     margin-right: 7%
 }
 .order-now {
+    width:100px;
     background: #ff8000;
     border: none;
     color: white;
@@ -74,7 +75,10 @@ table {
     border-collapse: collapse;
     font-family: arial, sans-serif;
     width: 100%;
-    margin-left: 5%;  
+    margin-left: 1%;  
+}
+.table-marg{
+    margin-bottom: 5%;
 }
 td {
 	border: 1px solid #dddddd;
@@ -83,10 +87,11 @@ td {
     text-align: center;
 }
 th {
-   background:#ffa64d;
+    background:#ffa64d;
     border: 1px solid #dddddd;
     padding: 8px;
-    text-align: center;  
+    text-align: center;
+    height: 25px;
 }
 tr:nth-child(even) {
     background-color: #ffb3ff;
@@ -118,8 +123,11 @@ and (max-width: 500px) {
         width: 100px;   
     }
     .main-head {
-        font-size: 1.5em;
-        margin-left: 10%;
+        font-size: 14px;
+        margin-left: 7%;
+    }
+    .order-now {
+        width: 150px;
     }
     .order-summ {
         font: 1em;
@@ -131,19 +139,26 @@ and (max-width: 500px) {
     }
     
     .sub-head {
-        margin-left: 20%;
+        margin-left: 15%;
+        font-size: 12px
     }
     td {
+        font-size: 14px;
         height: 50px;
         padding: 1px;
     }
     th {
         padding: 1px;
+        font-size: 12px;
+    }
+    table{
+        width: 100%;
+        margin-left: 7%;
     }
 }
 
-@media only screen and (min-width: 600px)
-and (max-width: 768px) {
+@media only screen and (min-width: 501px)
+and (max-width: 767px) {
     .back-btn{
         background: rgb(0, 255, 234);
         font-size: 16px;
@@ -162,7 +177,11 @@ and (max-width: 768px) {
         width: 350px;
     }
     .main-head {
-        margin-left: 25%;
+        text-align: center;
+        font-size: 1.2em
+    }
+    .order-now{
+        width: 70px;
     }
     .order-summ {
         margin-left: 20%;
@@ -174,15 +193,21 @@ and (max-width: 768px) {
         margin-top: 10%
     }
     .sub-head {
-        margin-left: 35%;
+        text-align: center;
     }
     table {
-        margin-left: 15%;  
+        margin-left: 10%;  
+    }
+    th {
+        font-size: 12px
+    }
+    td {
+        font-size: 10px
     }
     
 }
-@media only screen and (min-width: 800px)
-and (max-width: 1024px) {
+@media only screen and (min-width: 768px)
+and (max-width: 1020px) {
     .back-btn{
         width: 150px;
         font: 1.2em bold;
@@ -207,9 +232,40 @@ and (max-width: 1024px) {
         margin-top: 10%
     }
     .main-head {
-        margin-left: 30%;
+        font-size: 1.3em;
     }
-    .sub-head {
+    table {
+        margin-left: 70px;  
+    }
+}
+@media only screen and (min-width: 1024px){
+    table {
+        margin-left: 25px;  
+    }
+    .back-btn{
+        width: 150px;
+        font: 1.2em bold;
+    }
+    .confbtn{
+        margin-left:30%;
+        margin-right: 5%;
+        width: 350px;
+    }
+    .confirm-btn{
+        width: 150px;
+        font: 1.2em bold;
+        
+    }
+    .order-summ {
+        margin-left: 25%;
+        width: 400px;
+    }
+    .order-title{
+        font-size: 1.2em;
         margin-left: 35%;
+        margin-top: 10%
+    }
+    .main-head {
+        font-size: 1.5em;
     }
 }

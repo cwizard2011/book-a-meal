@@ -75,7 +75,9 @@
     .del-btn{
         font-size: 0.7em;
         height: 30px;
-        width: 90px;
+        width: 70px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
     h1 {
         font-size: 1.2em;

@@ -114,7 +114,7 @@ body {
 .nav-bar a:not(:first-child) {float: right;}
   
 /* Mobile Screen */
-@media only screen and (max-width: 528px) {
+@media only screen and (max-width: 767px) {
     .nav-bar a:not(:first-child) {display: none;}
     .nav-bar a.nav-icon {
       float: right;
