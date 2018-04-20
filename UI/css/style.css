@@ -79,6 +79,7 @@ body {
     padding: 5px;
     transition: all 0.5s;
     width: 150px;
+    opacity: 1;
 }
 .login-btn span {
     cursor: pointer;
@@ -114,6 +115,7 @@ body {
     padding: 5px;
     transition: all 0.5s;
     width: 150px;
+    opacity: 1;
 }
 .signup-btn span {
     cursor: pointer;
