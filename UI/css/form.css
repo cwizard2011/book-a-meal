@@ -108,13 +108,13 @@
         margin-left: 7%;
     }
     .btn-log{
-        width: 200px;
+        width: 300px;
     }
     .btn-sgn{
-        width: 200px;
+        width: 300px;
     }
     .form-style-8{
-        width: 200px;
+        width: 300px;
         padding: 10px;
     }
     .form-style-8 input[type="submit"]{
@@ -135,7 +135,18 @@
         margin-left: 3%
         
     }
+    .btn-log{
+        width: 220px;
+    }
+    .btn-sgn{
+        width: 220px;
+    }
+    .form-style-8{
+        width: 220px;
+        padding: 10px;
+    }
     .login-head {
         font-size: 1.2em;
     }
+
     }

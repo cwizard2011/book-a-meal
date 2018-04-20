@@ -52,6 +52,9 @@ body {
     margin-bottom: 3px;
     font-family: Shrikhand;
 }
+.mob-title{
+    display: none;
+}
 
 .sections {
     display: flex;
@@ -128,7 +131,11 @@ body {
         display: block;
         text-align: left;
       }
-
+      .mob-title{
+          display: inline-block;
+          color: white;
+          margin-left: 7%;
+      }
     body{
         background-size: cover;
     }
@@ -148,16 +155,14 @@ body {
         margin-right: 5%
     }
     .card {
-        width: 70%;
+        width: 99%;
         margin-bottom: 10%;
-        margin-left: 10%;
+        margin-left: 20%;
         margin-top: 30px;
         padding-bottom: 3%;
     }
-    .header>h1 {
-        margin-left: 7%;
-        margin-bottom: 5%;
-        font-size: 16px;
+    .header {
+        display: none;
     }
     .sections>p {
         font-size: 0.6em;
@@ -171,11 +176,15 @@ body {
         height: 20px;
     }
     .login-btn {
-        font-size: 1.2em;
-    
+        font-size: 12px;
+        padding: 5px;
+        width: 60px;
     }
     .signup-btn {
-        font-size: 1.2em;
+        font-size: 12px;
+        margin-right: 10px;
+        padding: 5px;
+        width: 60px;
     }
 }
 @media only screen and (min-width: 768px) 
@@ -216,9 +225,9 @@ and (max-width:1000px) {
         margin-right: 5%
     }
     .card {
-        width: 70%;
+        width: 80%;
         margin-bottom: 10%;
-        margin-left: 10%;
+        margin-left: 20%;
         margin-top: 30px;
         padding-bottom: 3%;
     }
@@ -240,11 +249,10 @@ and (max-width:1000px) {
         height: 20px;
     }
     .login-btn {
-        font-size: 1.2em;
-    
+        font-size: 16px;
     }
     .signup-btn {
-        font-size: 1.2em;
+        font-size: 16px;
     }
 }
 @media only screen and (min-width: 1024px) {
