@@ -15,7 +15,7 @@
 	}
 }
 .dashboard-background {
-    background:  #ffffcc;
+    background: #ccff99
 }
 .del-btn {
     background: rgba(255, 0, 0, 0.973);
@@ -62,8 +62,7 @@
 }
 .table-cap {
     font-size: 1.2em;
-    background: #ffb3ff;
-    padding-bottom: 0 auto;
+    padding-bottom: 2px auto;
 }
 .tablediv{
     margin-bottom: 5%;

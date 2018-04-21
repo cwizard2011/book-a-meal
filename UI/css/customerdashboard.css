@@ -124,7 +124,7 @@ th {
     height: 25px;
 }
 tr:nth-child(even) {
-    background-color: #ffb3ff;
+    background-color: #12a90a;
 }
 @media only screen and (min-width: 284px) 
 and (max-width: 500px) {
@@ -154,10 +154,10 @@ and (max-width: 500px) {
     }
     .main-head {
         font-size: 14px;
-        margin-left: 7%;
+        margin-left: 20%;
     }
     .order-now {
-        width: 150px;
+        width: 130px;
     }
     .order-summ {
         padding: 2px;
@@ -174,7 +174,7 @@ and (max-width: 500px) {
         font-size: 12px
     }
     td {
-        font-size: 14px;
+        font-size: 10px;
         height: 50px;
         padding: 1px;
     }
@@ -184,7 +184,7 @@ and (max-width: 500px) {
     }
     table{
         width: 100%;
-        margin-left: 7%;
+        margin-left: 15%;
     }
 }
 
@@ -228,7 +228,7 @@ and (max-width: 767px) {
         text-align: center;
     }
     table {
-        margin-left: 10%;  
+        margin-left: 18%;  
     }
     th {
         font-size: 12px
@@ -261,8 +261,8 @@ and (max-width: 640px) {
         font-size: 1.2em
     }
     .order-now{
-        width: 80px;
-        font-size: 10px;
+        width: 60px;
+        font-size: 7px;
         padding:2px;
     }
     .order-summ {
@@ -318,6 +318,9 @@ and (max-width: 1020px) {
     }
     table {
         margin-left: 70px;  
+    }
+    .order-now {
+        width:100px;
     }
 }
 @media only screen and (min-width: 1024px){
