@@ -144,6 +144,7 @@ figure {
     .menu-image {
         height: 120px;
         width: 150px;
+        margin-left:0.6em;
     }
     .menu-list {
         display: flex;
@@ -182,6 +183,7 @@ figure {
     .menu-image {
         height: 130px;
         width: 150px;
+        margin-left: 0.1em;
     }
     .menu-list {
         display: flex;
@@ -249,8 +251,8 @@ figure {
     }
     figure {
         display: block;
-        -webkit-margin-before: 0.6em;
-        -webkit-margin-after: 0.6em;
+        -webkit-margin-before: 0.8em;
+        -webkit-margin-after: 0.8em;
         -webkit-margin-start: 10px;
         -webkit-margin-end: 10px;
     }
