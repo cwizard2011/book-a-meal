@@ -162,9 +162,9 @@ and (max-width: 500px) {
     }
     .order-summ {
         padding: 2px;
-        font: 10px;
+        font-size: 8px;
         margin-left: 3%;
-        width: 270px;
+        width: 200px;
     }
     .order-title{
         margin-left: 15%;
