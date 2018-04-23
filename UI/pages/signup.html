@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shrikhand&effect=emboss"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=3d|3d-float|anaglyph">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/form.css">
+
+        <title>Signup Page</title>
+        <link rel="icon" type="image/png" href="../images/icon.png" />
+    </head>
+    <body>
+        <div class="banner">
+            <div class= "nav-bar" id="topNav">
+                <a class="home font-effect-emboss" href="index.html">Mealy</a>
+                <a href="login.html">Login</a>
+                <a href="admin/admin.html">Caterer</a>
+                <a href="javascript:void(0);" class="nav-icon" onclick="resNav()">&#9776;</a>
+            </div>
+        </div>
+        <div class= "container">
+            <div class="card">
+                <header class="header">
+                    <h1 class="auth-head">New User Registration</h1>
+                </header>
+                <h3 class="mob-title">New User Registration</h3>
+                <section class="sections">
+                    <p>Fill the form below to Signup</p>
+                </section>
+                <div class = "form-style-8">
+                    <form action="./customerdashboard.html" method="GET">
+                        <input type="text" placeholder="First Name" required/>
+                        <input type="text" placeholder="Last Name" required/>
+                        <input type="email" placeholder="Email" required/>
+                        <input type="text" placeholder="Phone Number"/>
+                        <input type="password" placeholder="Password" required/>
+                        <button class="btn-sgn">Register</button>       
+                    </form>
+                    <p>Have an account Already? <a class="link-white-background" href="login.html">Login</a> instead</p>
+                </div> 
+            </div>   
+        </div>
+        <script src="../js/nav.js"></script> 
+    </body>
+</html> 

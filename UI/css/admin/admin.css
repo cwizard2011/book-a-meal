@@ -1,0 +1,14 @@
+.admin-background {
+    background-color: aquamarine;
+    background-image: url('../../images/menu-back.jpg');
+    background-size: cover;
+}
+
+@media only screen and (max-width: 768px) {
+    .admin-background {
+        background-image: url('../../images/chef.jpg');
+        background-size: cover;
+    
+    }
+    
+}

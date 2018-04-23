@@ -1,0 +1,164 @@
+.auth-head {
+    color: whitesmoke;
+    margin-left: 5%;
+}
+.btn-log{
+    background: #ff471a;
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    font: 1.5em bold;
+    height: 40px;
+    width: 400px;
+    transition: all 0.5s;
+}
+.btn-log:hover{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.btn-sgn{
+    background: #53ff1a;
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    font: 1.5em bold;
+    height: 40px;
+    width: 400px;
+    transition: all 0.5s 
+}
+.btn-sgn:hover{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 400px;
+    padding: 30px;
+    background: #fff;
+    margin: 0px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="file"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+}
+.form-style-8 input[type="button"],
+.form-style-8 input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #00c3ffe8;
+    border: 1px solid #cccccc;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 15px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 30%;
+    margin-top: 15px;
+}
+.form-style-8 input[type="file"]{
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+    border: none;
+}
+.form-style-8 input[type="button"]:hover,
+.form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+
+.login-head {
+    font-family: Lobster;
+    color: whitesmoke;
+    float: center;
+    margin-left: 10%;
+}
+.link-white-background {
+    color: rgb(0, 162, 255)
+}
+
+
+/* Mobile Screen */
+@media only screen and (max-width: 768px){
+    .auth-head {
+        margin-left: 7%;
+    }
+    .btn-log{
+        width: 300px;
+    }
+    .btn-sgn{
+        width: 300px;
+    }
+    .form-style-8{
+        width: 300px;
+        padding: 10px;
+    }
+    .form-style-8 input[type="submit"]{
+        font-size: 0.7em;
+        padding: 10px px;
+    }
+    .form-style-8 input[type="file"]{
+        font: 12px Arial, Helvetica, sans-serif;
+        height: 40px;
+        border: none;
+    }
+    .login-head {
+        font-size: 1.5em;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 560px) {
+    .auth-head {
+        margin-left: 3%
+        
+    }
+    .btn-log{
+        width: 170px;
+    }
+    .btn-sgn{
+        width: 170px;
+    }
+    .form-style-8{
+        width: 170px;
+        padding: 5px;
+    }
+    .login-head {
+        font-size: 1.2em;
+    }
+
+    }

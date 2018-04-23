@@ -1,0 +1,170 @@
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+.dashboard-background {
+    background: #ccff99
+}
+.del-btn {
+    background: rgba(255, 0, 0, 0.973);
+    border: none;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    height: 40px;
+    line-height: 30px;
+    width: 100px;
+    transition: all 0.5s;
+}
+.del-btn:hover{
+    animation: bounce 1s;
+}
+.item {
+    display: flex;
+    font-size: 2em;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    width: 300px;
+}
+.menu1 {
+    height:50px;
+    background-size: cover;
+    width: 50px;
+    transition: all 1s;
+}
+.menu1:hover{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.menu-display{
+    margin-top: 5%;
+    width: 700px; 
+}
+.menu-display> h1{
+    margin-left: 20%;
+    margin-top: 5%
+}
+.menu-link {
+    color: blue;
+}
+.table-cap {
+    font-size: 1.2em;
+    padding-bottom: 2px auto;
+}
+.tablediv{
+    margin-bottom: 5%;
+    margin-top: 8%;
+}
+#add-btn {
+    background: #008000;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 30%;
+    margin-top: 5%;
+    padding: 15px 22px;
+    transition: all 0.5s
+}
+#add-btn:hover{
+    animation: bounce 1s;
+}
+#menu-form {
+    background: white;
+    margin-bottom: 10%;
+    margin-left: 30%;
+    margin-top: 5%;
+    
+    
+}
+#send-btn {
+    background: #66d9ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 25%;
+    margin-top: 5%;
+    padding: 15px 10px;
+    width: 120px
+}
+
+@media only screen and (max-width: 560px) {
+    .del-btn{
+        font-size: 0.7em;
+        height: 30px;
+        width: 70px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    h1 {
+        font-size: 1.2em;
+        margin-left: 0.5em;
+    }
+    .item {
+        display: flex;
+        font-size: 1.5em;
+        justify-content: space-around;
+        width: 300px;
+        padding-bottom: 10px
+    }
+    .menu-display{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .menu-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .menu-div > div> h1 {
+        font-size: 1.5em;
+        margin-left:5%;
+    }
+    .table-cap {
+        background: #ffb3ff;
+        font-size: 1em;
+        padding-bottom: 0 auto;
+    }
+    .tablediv{
+        margin-top: 10%;
+    }
+    #add-btn {
+        margin-left: 18%;
+        font-size: 10px;
+        margin-bottom: 0.7em;
+    }
+    #menu-form {
+        margin-left:30%;
+        margin-top: 5%;
+    }
+    
+}
+    @media only screen and (min-width: 568px)
+    and (max-width: 812px) {
+        #menu-form {
+            margin-left: 30%;
+        }
+        h1 {
+            display: block;
+            font-size: 2em;
+            -webkit-margin-start:0.8em;
+            font-weight: bold;
+        }
+        #add-btn {
+            margin-left: 25%;
+            margin-bottom: 5%;
+        }
+}
