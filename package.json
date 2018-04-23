@@ -1,0 +1,40 @@
+{
+  "name": "book-a-meal",
+  "version": "1.0.0",
+  "description": "An app that allow a customer view meal of the day, place and order and the caterer to add meal and view order history",
+  "main": "index.js",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "^1.18.2",
+    "eslint": "^4.19.1",
+    "express": "^4.16.3",
+    "express-validator": "^5.1.2"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
+  "scripts": {
+    "babel-node": "babel-node --presets=latest",
+    "start": "babel-node server/app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwizard2011/book-a-meal.git"
+  },
+  "author": "Adeoye Peter Adeola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwizard2011/book-a-meal/issues"
+  },
+  "homepage": "https://github.com/cwizard2011/book-a-meal#readme"
+}
