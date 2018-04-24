@@ -5,12 +5,8 @@
 class MenuController {
   static createMenu(req, res) {
     try {
-      req.checkBody('id', 'Id is required').notEmpty().trim();
       req.checkBody('menuName', 'Menu name is required').notEmpty().trim();
-      req.checkBody('mealId', 'Meal id is required').notEmpty().trim();
-      req.checkBody('mealName', 'Name of meal is required').notEmpty().trim();
-      req.checkBody('price', 'Price of meal is required').notEmpty().trim();
-      req.checkBody('description', 'Meal description is required').notEmpty().trim();
+      req.checkBody('meals', 'Meals on menu are required').notEmpty().trim();
       req.checkBody('date', 'Date of menu is required').notEmpty().trim();
 
       const requestErrors = req.validationErrors();
@@ -20,22 +16,11 @@ class MenuController {
           errors: requestErrors,
         });
       } else {
-        req.sanitizeBody('id').escape();
-
-
+        req.sanitizeBody('menuName').escape();
         const menu = {
-          id: req.body.id,
           menuName: req.body.menuName,
           date: req.body.date,
-          meals: [
-            {
-              mealId: req.body.mealId,
-              mealName: req.body.mealName,
-              description: req.body.description,
-              image: req.body.image,
-              price: req.body.price,
-            },
-          ],
+          meals: [req.body.meals],
         };
         req.menus.push(menu);
         res.status(201).json({ menu });

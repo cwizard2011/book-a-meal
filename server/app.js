@@ -13,7 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 
-app.post('/api/v1/meals', menuMiddleware, MenuController.createMenu);
-app.get('/api/v1/meals', menuMiddleware, MenuController.getMenu);
+app.post('/api/v1/menus', menuMiddleware, MenuController.createMenu);
+app.get('/api/v1/menus', menuMiddleware, MenuController.getMenu);
+
 app.listen(port);
-console.log('Listening on port 3000...');
+
+export default app;
+
