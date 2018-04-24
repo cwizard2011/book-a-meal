@@ -2,23 +2,23 @@ const menus = [
   {
     id: 1,
     menuName: 'Carbohydrate mixture',
-    date: new Date().now,
+    date: '23/07/2018',
     meals: [
       {
-        meal_id: '01',
-        name: 'Rice and chicken',
+        mealId: '01',
+        mealName: 'Rice and chicken',
         description: 'Rice like no other',
         image: 'image-url',
         price: '# 500',
       }, {
-        id: '02',
-        name: 'Beans and plantain',
+        mealId: '02',
+        mealName: 'Beans and plantain',
         description: 'Beans the sweetest protein',
         image: 'image2-url',
         price: '# 700',
       }, {
-        id: '03',
-        name: 'Pounded yam, vegetable and bush meat',
+        mealId: '03',
+        mealName: 'Pounded yam, vegetable and bush meat',
         description: 'Pounded yam the sweetest local food',
         image: 'poundedyam-image',
         price: '# 1000',
