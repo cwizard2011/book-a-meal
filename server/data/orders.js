@@ -11,4 +11,5 @@ const orders = [
     total: '# 2500',
   }
 ];
+
 export default orders;

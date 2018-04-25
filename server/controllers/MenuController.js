@@ -1,8 +1,17 @@
 // import menus from '../data/menus';
 /**
- * @class MealController
+ * @class MenuController
  */
 class MenuController {
+  /**
+   * Create a new menu
+   *
+   * @static
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @returns {Object} res
+   *
+   */
   static createMenu(req, res) {
     try {
       req.checkBody('menuName', 'Menu name is required').notEmpty().trim();
@@ -29,6 +38,15 @@ class MenuController {
       res.sendStatus(500);
     }
   }
+  /**
+   * Get menu
+   *
+   * @static
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @returns {Object} res
+   *
+   */
   static getMenu(req, res) {
     res.status(200).json({
       menus: req.menus,

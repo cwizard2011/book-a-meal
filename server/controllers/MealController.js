@@ -27,7 +27,6 @@ class MealController {
           errors: requestErrors,
         });
       } else {
-        req.sanitizeBody('mealName').escape();
         const meal = {
           id: req.body.id,
           mealName: req.body.mealName,
@@ -50,7 +49,7 @@ class MealController {
   }
 
   /**
-   * Create a new meal
+   * get meal
    *
    * @static
    * @param {Object} req - request object
@@ -64,7 +63,7 @@ class MealController {
     });
   }
   /**
-   * Create a new meal
+   * get meal by id
    *
    * @static
    * @param {Object} req - request object
@@ -73,13 +72,13 @@ class MealController {
    *
    */
   static getMealId(req, res) {
-    const { id } = req.params.id;
-    const result = req.meals.filter(meal => meal.id === id)[0];
+    const mealId = parseInt(req.params.mealId, 10);
+    const result = req.meals.filter(m => m.mealId === mealId)[0];
 
-    if (result) {
-      res.sendStatus(200).json({ result: res.result });
-    } else {
+    if (!result) {
       res.sendStatus(404);
+    } else {
+      res.send(result);
     }
   }
 }
