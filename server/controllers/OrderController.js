@@ -69,7 +69,7 @@ class OrderController {
    * @returns {Object} res
    *
    */
-  static putOrder(req, res) {
+  static editOrder(req, res) {
     const orderId = parseInt(req.params.orderId, 10);
     const existingOrder = req.orders.filter(edit => edit.orderId === orderId)[0];
 

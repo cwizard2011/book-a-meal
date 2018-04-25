@@ -81,6 +81,31 @@ class MealController {
       res.send(result);
     }
   }
+  /**
+   *Edit meals by Id
+   *
+   * @static
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @returns {Object} res
+  */
+  static editMeal(req, res) {
+    const mealId = parseInt(req.params.mealId, 10);
+    const existingMeal = req.meals.filter(edit => edit.mealId === mealId)[0];
+
+    if (!existingMeal) {
+      const meal = req.body;
+      meal.mealId = mealId;
+      req.meals.push(meal);
+      res.setHeader(`Location, /api/v1/ ${mealId}`);
+      res.sendStatus(201);
+    } else {
+      existingMeal.mealName = req.body.mealName;
+      existingMeal.price = req.body.price;
+      existingMeal.description = req.body.description;
+      res.sendStatus(204);
+    }
+  }
 }
 
 export default MealController;
