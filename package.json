@@ -36,7 +36,6 @@
     "start:dev": "nodemon --watch app --exec babel-node server/app.js",
     "build": "babel server -s -d dist",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "coverage": "nyc report --reporter=html --reporter=text-lcov | coveralls",
     "babel-node": "babel-node --presets=latest",
     "test": "mocha --require babel-register server/tests/**/*.js --timeout 100000 --exit"
   },
