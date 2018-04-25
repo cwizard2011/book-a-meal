@@ -14,7 +14,7 @@ class MealController {
    */
   static createMeal(req, res) {
     try {
-      req.checkBody('id', 'id is required').notEmpty().trim();
+      req.checkBody('mealId', 'id is required').notEmpty().trim();
       req.checkBody('mealName', 'Meal name is required').notEmpty().trim();
       req.checkBody('price', 'Price of meal is required').notEmpty().trim();
       req.checkBody('description', 'Meal description is required').notEmpty().trim();
@@ -28,14 +28,14 @@ class MealController {
         });
       } else {
         const meal = {
-          id: req.body.id,
+          id: req.body.mealId,
           mealName: req.body.mealName,
           price: req.body.price,
           description: req.body.description,
           mealAvatar: req.body.mealAvatar,
         };
         const filterMeal = req.meals.filter(check =>
-          check.mealName === req.body.mealName || check.id === req.body.id);
+          check.mealName === req.body.mealName || check.mealId === req.body.mealId);
         if (filterMeal.length === 0) {
           req.meals.push(meal);
           res.status(201).json({ meal });
@@ -105,6 +105,25 @@ class MealController {
       existingMeal.description = req.body.description;
       res.sendStatus(204);
     }
+  }
+  /**
+   *Edit meals by Id
+   *
+   * @static
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @returns {Object} res
+  */
+  static removeMeal(req, res) {
+    const mealId = parseInt(req.params.mealId, 10);
+    const currentMeal = req.meals.filter(check => check.mealId === mealId)[0];
+
+    if (currentMeal) {
+      req.meals = req.meals.filter(m => m.mealId !== mealId);
+      res.sendStatus(204);
+    }
+
+    return res.sendStatus(404);
   }
 }
 
