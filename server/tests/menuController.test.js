@@ -4,24 +4,19 @@ import app from '../app';
 
 const { expect } = chai;
 
-describe ('POST /api/v1/menus', () => {
+describe('POST /api/v1/menus', () => {
   it('should create a new menu', () => {
     const menu = {
-        menuName: 'Fried rice',
-        date: '22/01/21',
-        meals: ['eba', 'beans', 'dodo'],
-      }
+      menuName: 'Fried rice',
+      date: '22/01/21',
+      meals: ['eba', 'beans', 'dodo'],
+    };
     const res = request(app)
-    .post('/api/v1/menus')
-    .set('content-type', 'application/json')
-    .send({menu})
-    .expect(201);
-      expect(res.body).to.be.an('object');
-      expect(res.body.menu).to.have.a.property('menuName');
-      expect(res.body.menu).to.have.a.property('date');
-      expect(res.body.menu).to.have.a.property('meals');
-      expect(res.body.menu).to.equal(menu);
+      .post('/api/v1/menus')
+      .set('content-type', 'application/json')
+      .send({ menu })
+      .expect(201);
+    expect(res.body).to.be.an('object');
+    expect(res.body.menu).to.equal(menu);
   });
-})
-  
-
+});
