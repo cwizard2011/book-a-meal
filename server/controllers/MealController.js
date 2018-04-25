@@ -1,17 +1,5 @@
 import meals from '../data/meals';
 class MealController {
-  static getMeal(req, res){
-    res.status(200).json({
-      meals: req.meals,
-    });
-  }
-  static getMealById(req, res) {
-    const id = req.params
-    console.log(meal);
-    if (meal){
-      res.status(200).json({meal})
-    }
-  }
   static createMeal(req, res){
     try {
       req.checkBody('id', 'id is required').notEmpty().trim();
