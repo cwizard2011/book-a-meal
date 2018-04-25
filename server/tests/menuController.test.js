@@ -1,22 +1,34 @@
 import chai from 'chai';
-import request from 'supertest';
+import chaiHttp from 'chai-http';
 import app from '../app';
+
+/* eslint-disable no-unused-vars */
+const should = chai.should();
+
+chai.use(chaiHttp);
+
+// Global
 
 const { expect } = chai;
 
-describe('POST /api/v1/menus', () => {
-  it('should create a new menu', () => {
-    const menu = {
-      menuName: 'Fried rice',
-      date: '22/01/21',
-      meals: ['eba', 'beans', 'dodo'],
-    };
-    const res = request(app)
-      .post('/api/v1/menus')
-      .set('content-type', 'application/json')
-      .send({ menu })
-      .expect(201);
-    expect(res.body).to.be.an('object');
-    expect(res.body.menu).to.equal(menu);
+
+const menu = {
+  menuName: 'Fried rice',
+  date: '22/01/21',
+  meals: ['eba', 'beans', 'dodo'],
+};
+
+
+describe('/POST a menu', () => {
+
+  it('it should Add(post) a new menu', () => {
+    chai.request(app)
+      .post('/api/v1/menu')
+      .send(menu)
+      .then((res) => {
+        res.body.should.be.a('object');
+        res.body.menu.eq(menu);
+      });
   });
 });
+

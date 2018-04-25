@@ -1,5 +1,17 @@
 
+/** @class MealController
+ *
+ */
 class MealController {
+  /**
+   * Create a new meal
+   *
+   * @static
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @returns {Object} res
+   *
+   */
   static createMeal(req, res) {
     try {
       req.checkBody('id', 'id is required').notEmpty().trim();
@@ -23,29 +35,51 @@ class MealController {
           description: req.body.description,
           mealAvatar: req.body.mealAvatar,
         };
-        req.meals.push(meal);
-        res.status(201).json({ meal });
+        const filterMeal = req.meals.filter(check =>
+          check.mealName === req.body.mealName || check.id === req.body.id);
+        if (filterMeal.length === 0) {
+          req.meals.push(meal);
+          res.status(201).json({ meal });
+        } else {
+          return res.status(400).send({ message: 'Meal already exist' });
+        }
       }
     } catch (error) {
       res.sendStatus(500);
     }
   }
+
+  /**
+   * Create a new meal
+   *
+   * @static
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @returns {Object} res
+   *
+   */
   static getMeal(req, res) {
     res.status(200).json({
       meals: req.meals,
     });
   }
+  /**
+   * Create a new meal
+   *
+   * @static
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @returns {Object} res
+   *
+   */
   static getMealId(req, res) {
-    try {
-      const id = req.params;
-      const meals = req.meals.find(meal => meal.id === id).meal;
-      if (meals) {
-        res.status(200).json({ meals });
-      }
-    } catch (error) {
-      res.status(404).json({
-        error: 'Meal not found',
-      });
+    const { id } = req.params.id;
+    const result = req.meals.filter(meal => meal.id === id)[0];
+
+    if (result) {
+      res.sendStatus(200).json({ result: res.result });
+    } else {
+      res.sendStatus(404);
     }
   }
 }
