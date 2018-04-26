@@ -29,10 +29,9 @@ class MenuController {
         res.status(400).json({
           errors: requestErrors
         });
+      } else if (typeof req.body.menuName !== 'string') {
+        res.sendStatus(400);
       } else {
-        if (typeof req.body.menuName !== 'string') {
-          res.sendStatus(404);
-        }
         req.sanitizeBody('menuName').escape();
         const menu = {
           menuName: req.body.menuName,

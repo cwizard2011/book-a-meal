@@ -1,5 +1,3 @@
-import MenuController from '../../controllers/MenuController';
-import menus from '../../data/menus';
 
 const valid = {
   menuName: 'Carbohydrate mixture',
@@ -23,9 +21,10 @@ const invalid3 = {
   menuName: 'Carbohydrate mixture',
   date: '25/07/18'
 };
-
-const insertMenu = (menu) => {
-  MenuController.createMenu(menu);
+const invalid4 = {
+  menuName: 12542,
+  date: '23/07/2018',
+  meals: ['Rice and Chicken', 'Beans and plantain', 'Pounded yam, vegetable and bush meat',
+    'Fried rice, plantain and beef'],
 };
-
-export { valid, invalid1, invalid2, invalid3, insertMenu };
+export { valid, invalid1, invalid2, invalid3, invalid4 };
