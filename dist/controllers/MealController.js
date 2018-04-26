@@ -1,3 +1,8 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 /** @class MealController
  *
@@ -24,7 +29,7 @@ class MealController {
 
       if (requestErrors) {
         res.status(400).json({
-          errors: requestErrors,
+          errors: requestErrors
         });
       } else {
         const meal = {
@@ -32,10 +37,9 @@ class MealController {
           mealName: req.body.mealName,
           price: req.body.price,
           description: req.body.description,
-          mealAvatar: req.body.mealAvatar,
+          mealAvatar: req.body.mealAvatar
         };
-        const filterMeal = req.meals.filter(check =>
-          check.mealName === req.body.mealName || check.mealId === req.body.mealId);
+        const filterMeal = req.meals.filter(check => check.mealName === req.body.mealName || check.mealId === req.body.mealId);
         if (filterMeal.length === 0) {
           req.meals.push(meal);
           res.status(201).json({ meal });
@@ -59,7 +63,7 @@ class MealController {
    */
   static getMeal(req, res) {
     res.status(200).json({
-      meals: req.meals,
+      meals: req.meals
     });
   }
   /**
@@ -126,4 +130,5 @@ class MealController {
   }
 }
 
-export default MealController;
+exports.default = MealController;
+//# sourceMappingURL=MealController.js.map

@@ -1,8 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
-import MenuController from './controllers/MealController';
-import menuMiddleware from './middleware/menuMiddleware';
+import menuRoutes from './routes/menuRoutes';
+import mealRoutes from './routes/mealRoutes';
+import orderRoutes from './routes/orderRoutes';
 
 
 const port = process.env.PORT || 3000;
@@ -13,6 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 
-app.post('/api/v1/meals', menuMiddleware, MenuController.createMenu);
+menuRoutes('/api/v1', app);
+mealRoutes('/api/v1', app);
+orderRoutes('/api/v1', app);
+
 app.listen(port);
-console.log('Listening on port 3000...');
+
+export default app;
+
