@@ -122,12 +122,11 @@ class MealController {
     const mealId = parseInt(req.params.mealId, 10);
     const currentMeal = req.meals.filter(check => check.mealId === mealId)[0];
 
-    if (currentMeal) {
-      req.meals = req.meals.filter(m => m.mealId !== mealId);
-      res.sendStatus(204);
+    if (!currentMeal) {
+      return res.sendStatus(404);
     }
-
-    return res.sendStatus(404);
+    req.meals = req.meals.splice(currentMeal, 1);
+    res.sendStatus(204);
   }
 }
 

@@ -1,12 +1,12 @@
 'use strict';
 
-var _chai = require('chai');
+var _expect = require('expect');
 
-var _chai2 = _interopRequireDefault(_chai);
+var _expect2 = _interopRequireDefault(_expect);
 
-var _chaiHttp = require('chai-http');
+var _supertest = require('supertest');
 
-var _chaiHttp2 = _interopRequireDefault(_chaiHttp);
+var _supertest2 = _interopRequireDefault(_supertest);
 
 var _app = require('../app');
 
@@ -14,28 +14,25 @@ var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable no-unused-vars */
-const should = _chai2.default.should();
-
-_chai2.default.use(_chaiHttp2.default);
-
-// Global
-
-const { expect } = _chai2.default;
-
-const menu = {
-  menuName: 'Fried rice',
-  date: '22/01/21',
-  meals: ['eba', 'beans', 'dodo']
-};
-
-describe('/POST a menu', () => {
-
-  it('it should Add(post) a new menu', () => {
-    _chai2.default.request(_app2.default).post('/api/v1/menu').send(menu).then(res => {
-      res.body.should.be.a('object');
-      res.body.menu.eq(menu);
+describe('POST /api/v1/menus', () => {
+  it('should create a new menu', () => {
+    const menu = {
+      menuName: 'new menu2',
+      date: '22/05/18',
+      meals: ['rice', 'dodo', 'yam']
+    };
+    (0, _supertest2.default)(_app2.default).post('/api/v1/menus').set('accept', 'application/json').send({ menu }).expect(201).expect(res => {
+      (0, _expect2.default)(res.body.menu).toEqual(menu);
     });
   });
+  it('should not post menu if one of the key is missing', done => {
+    const menu = {
+      date: '22/05/18',
+      meals: ['rice', 'dodo', 'yam']
+    };
+    (0, _supertest2.default)(_app2.default).post('/api/v1/menus').send({ menu }).expect(400).end(err => done(err));
+  });
 });
+
+// describe('GET /api/v1/menus', () =>)
 //# sourceMappingURL=menuController.test.js.map
