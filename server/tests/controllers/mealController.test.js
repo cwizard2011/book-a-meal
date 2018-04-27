@@ -19,8 +19,9 @@ describe('GET /api/v1/meals', () => {
 });
 describe('GET /api/v1/meals/:mealId', () => {
   it('should not return meal with invalid id', async () => {
+    const mealId = 7;
     await request(app)
-      .get('/api/v1/meals/:mealId')
+      .get(`/api/v1/meals/${mealId}`)
       .set('Accept', 'application/json')
       .expect(404);
   });

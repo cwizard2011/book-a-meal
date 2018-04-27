@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 const meal = {
-  id: 12,
+  mealId: 12,
   mealName: 'Chicken Salad',
   price: '# 5000',
   description: 'Best meal in town',
@@ -17,25 +17,25 @@ const invalid1 = {
   mealAvatar: 'image2'
 };
 const invalid2 = {
-  id: 3,
+  mealId: 3,
   price: '# 5000',
   description: 'Best meal in town',
   mealAvatar: 'image3'
 };
 const invalid3 = {
-  id: 4,
+  mealId: 4,
   mealName: 'Rice Salad',
   description: 'Best meal in town',
   mealAvatar: 'image4'
 };
 const invalid4 = {
-  id: 7,
+  mealId: 7,
   mealName: 'Fruit Salad',
   price: '# 10000',
   mealAvatar: 'image5'
 };
 const invalid5 = {
-  id: 8,
+  mealId: 8,
   mealName: 'Chicken Salad',
   price: '# 5000',
   description: 'Best meal in town'
@@ -54,6 +54,12 @@ const existMeal2 = {
   mealAvatar: 'imageurl2',
   price: '# 1300'
 };
+const newMeal = {
+  mealName: 'Moi moi and Ginger',
+  description: 'The worst food you can ever order for',
+  mealAvatar: 'imageurl8',
+  price: '# 200'
+};
 exports.meal = meal;
 exports.invalid1 = invalid1;
 exports.invalid2 = invalid2;
@@ -62,4 +68,5 @@ exports.invalid4 = invalid4;
 exports.invalid5 = invalid5;
 exports.existMeal1 = existMeal1;
 exports.existMeal2 = existMeal2;
+exports.newMeal = newMeal;
 //# sourceMappingURL=meal.js.map
