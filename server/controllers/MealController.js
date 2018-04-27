@@ -13,38 +13,34 @@ class MealController {
    *
    */
   static createMeal(req, res) {
-    try {
-      req.checkBody('mealId', 'id is required').notEmpty().trim();
-      req.checkBody('mealName', 'Meal name is required').notEmpty().trim();
-      req.checkBody('price', 'Price of meal is required').notEmpty().trim();
-      req.checkBody('description', 'Meal description is required').notEmpty().trim();
-      req.checkBody('mealAvatar', 'Image of meal is required').notEmpty().trim();
+    req.checkBody('mealId', 'id is required').notEmpty().trim();
+    req.checkBody('mealName', 'Meal name is required').notEmpty().trim();
+    req.checkBody('price', 'Price of meal is required').notEmpty().trim();
+    req.checkBody('description', 'Meal description is required').notEmpty().trim();
+    req.checkBody('mealAvatar', 'Image of meal is required').notEmpty().trim();
 
-      const requestErrors = req.validationErrors();
+    const requestErrors = req.validationErrors();
 
-      if (requestErrors) {
-        res.status(400).json({
-          errors: requestErrors,
-        });
+    if (requestErrors) {
+      res.status(400).json({
+        errors: requestErrors,
+      });
+    } else {
+      const meal = {
+        mealId: req.body.mealId,
+        mealName: req.body.mealName,
+        price: req.body.price,
+        description: req.body.description,
+        mealAvatar: req.body.mealAvatar,
+      };
+      const filterMeal = req.meals.filter(check =>
+        check.mealName === req.body.mealName || check.mealId === req.body.mealId);
+      if (filterMeal.length === 0) {
+        req.meals.push(meal);
+        res.status(201).json({ meal });
       } else {
-        const meal = {
-          id: req.body.mealId,
-          mealName: req.body.mealName,
-          price: req.body.price,
-          description: req.body.description,
-          mealAvatar: req.body.mealAvatar,
-        };
-        const filterMeal = req.meals.filter(check =>
-          check.mealName === req.body.mealName || check.mealId === req.body.mealId);
-        if (filterMeal.length === 0) {
-          req.meals.push(meal);
-          res.status(201).json({ meal });
-        } else {
-          return res.status(400).send({ message: 'Meal already exist' });
-        }
+        return res.status(400).send({ message: 'Meal or this Meal Id already exist' });
       }
-    } catch (error) {
-      res.sendStatus(500);
     }
   }
 
@@ -94,15 +90,12 @@ class MealController {
     const existingMeal = req.meals.filter(edit => edit.mealId === mealId)[0];
 
     if (!existingMeal) {
-      const meal = req.body;
-      meal.mealId = mealId;
-      req.meals.push(meal);
-      res.setHeader(`Location, /api/v1/ ${mealId}`);
-      res.sendStatus(201);
+      res.sendStatus(404);
     } else {
       existingMeal.mealName = req.body.mealName;
       existingMeal.price = req.body.price;
       existingMeal.description = req.body.description;
+      existingMeal.mealAvatar = req.body.mealAvatar;
       res.sendStatus(204);
     }
   }

@@ -1,3 +1,6 @@
 eslintrc:
   enabled: false
   config_file: .eslintrc.json
+jshintrc:
+  enabled: false
+  config_file: .jshintrc

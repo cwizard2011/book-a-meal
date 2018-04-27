@@ -13,36 +13,32 @@ class OrderController {
    *
    */
   static createOrder(req, res) {
-    try {
-      req.checkBody('orderId', 'Order id is required').notEmpty().trim();
-      req.checkBody('customerId', 'Customer Id is required').notEmpty().trim();
-      req.checkBody('mealName', 'Name of meal is required').notEmpty().trim();
-      req.checkBody('total', 'Order total description is required').notEmpty().trim();
+    req.checkBody('orderId', 'Order id is required').notEmpty().trim();
+    req.checkBody('customerId', 'Customer Id is required').notEmpty().trim();
+    req.checkBody('mealName', 'Name of meal is required').notEmpty().trim();
+    req.checkBody('total', 'Order total is required').notEmpty().trim();
 
-      const requestErrors = req.validationErrors();
+    const requestErrors = req.validationErrors();
 
-      if (requestErrors) {
-        res.status(400).json({
-          errors: requestErrors,
-        });
+    if (requestErrors) {
+      res.status(400).json({
+        errors: requestErrors,
+      });
+    } else {
+      const order = {
+        orderId: req.body.orderId,
+        customerId: req.body.customerId,
+        mealName: req.body.mealName,
+        total: req.body.total,
+      };
+      const filterOrder = req.orders.filter(check =>
+        check.orderId === req.body.orderId && check.customerId === req.body.customerId);
+      if (filterOrder.length === 0) {
+        req.orders.push(order);
+        res.status(201).json({ order });
       } else {
-        const order = {
-          orderId: req.body.orderId,
-          customerId: req.body.customerId,
-          mealName: req.body.mealName,
-          total: req.body.total,
-        };
-        const filterOrder = req.orders.filter(check =>
-          check.orderId === req.body.orderId && check.customerId === req.body.customerId);
-        if (filterOrder.length === 0) {
-          req.orders.push(order);
-          res.status(201).json({ order });
-        } else {
-          return res.status(400).send({ message: 'Order Id already exist' });
-        }
+        return res.status(400).send({ message: 'Order already exist' });
       }
-    } catch (error) {
-      res.sendStatus(500);
     }
   }
 
@@ -74,11 +70,7 @@ class OrderController {
     const existingOrder = req.orders.filter(edit => edit.orderId === orderId)[0];
 
     if (!existingOrder) {
-      const order = req.body;
-      order.orderId = orderId;
-      req.orders.push(order);
-      res.setHeader(`Location, /api/v1/ ${orderId}`);
-      res.sendStatus(201);
+        res.sendStatus(404);
     } else {
       existingOrder.mealName = req.body.mealName;
       existingOrder.total = req.body.total;

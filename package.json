@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "body-parser": "^1.18.2",
@@ -21,9 +22,11 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
     "istanbul": "^0.4.5",
+    "jest": "^22.4.3",
     "mocha": "^5.1.1",
     "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.17.3",
+    "nyc": "^11.7.1",
     "should": "^13.2.1",
     "supertest": "^3.0.0"
   },
@@ -32,10 +35,12 @@
       "latest"
     ]
   },
+  "engines": {
+    "node": "8.11.1"
+  },
   "scripts": {
-    "start": "node ./dist/app.js",
+    "start": "babel-node ./server/app.js",
     "start:dev": "nodemon --watch app --exec babel-node server/app.js",
-    "build": "babel server -s -d dist",
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec --require babel-register server/tests/**/*.js --timeout 600000 --exit",
     "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls",
     "babel-node": "babel-node --presets=latest",
