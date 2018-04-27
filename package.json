@@ -38,9 +38,8 @@
     "node": "9.11.1"
   },
   "scripts": {
-    "start": "node ./dist/app.js",
+    "start": "babel-node ./server/app.js",
     "start:dev": "nodemon --watch app --exec babel-node server/app.js",
-    "build": "babel server -s -d dist",
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec --require babel-register server/tests/**/*.js --timeout 600000 --exit",
     "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls",
     "babel-node": "babel-node --presets=latest",

@@ -35,10 +35,10 @@ const newOrder2 = {
   customerId: 22,
   mealName: 'Jollof Rice',
   total: '# 5000',
-}
+};
 const editOrder = {
   mealName: 'Chicken Rice',
   total: '# 7000',
-}
+};
 
 export { existOrder, newOrder1, newOrder2, invalid1, invalid2, invalid3, invalid4, editOrder };

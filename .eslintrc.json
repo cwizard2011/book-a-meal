@@ -14,15 +14,22 @@
     "$": true,
     "jest": true
   },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
-    "import/extensions": 0,
+    "import/extensions": "off",
     "jsx-a11y/label-has-for": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "camelcase": 0,
     "no-underscore-dangle": 0,
-    "import/no-unresolved": 0,
+    "import/no-unresolved": "off",
     "one-var": 0,
     "one-var-declaration-per-line": 0,
     "new-cap": 0,
