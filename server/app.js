@@ -4,10 +4,10 @@ import expressValidator from 'express-validator';
 import menuRoutes from './routes/menuRoutes';
 import mealRoutes from './routes/mealRoutes';
 import orderRoutes from './routes/orderRoutes';
-import localPort from './port/port'
 
 
-const port = process.env.PORT || localPort;
+
+const port = process.env.PORT || 3000;
 const app = express();
 
 
