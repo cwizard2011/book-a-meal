@@ -3,4 +3,8 @@
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage" /></a>
 [![Coverage Status](https://coveralls.io/repos/github/cwizard2011/book-a-meal/badge.svg?branch=chores-tests-157119250)](https://coveralls.io/github/cwizard2011/book-a-meal?branch=chores-tests-157119250)
 # book-a-meal
-An app that allow a customer view meal of the day, place and order and the caterer to add meal and view order history
+Book-A-Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.
+
+To view the template pages, check https://cwizard2011.github.io/book-a-meal/UI/index.html
+
+Login with dummy data to view all the template page
