@@ -33,7 +33,7 @@ class MealController {
         });
       } else {
         const meal = {
-          id: req.body.mealId,
+          mealId: req.body.mealId,
           mealName: req.body.mealName,
           price: req.body.price,
           description: req.body.description,
@@ -44,7 +44,7 @@ class MealController {
           req.meals.push(meal);
           res.status(201).json({ meal });
         } else {
-          return res.status(400).send({ message: 'Meal already exist' });
+          return res.status(400).send({ message: 'Meal or this Meal Id already exist' });
         }
       }
     } catch (error) {

@@ -28,7 +28,7 @@ class MealController {
         });
       } else {
         const meal = {
-          id: req.body.mealId,
+          mealId: req.body.mealId,
           mealName: req.body.mealName,
           price: req.body.price,
           description: req.body.description,
@@ -40,7 +40,7 @@ class MealController {
           req.meals.push(meal);
           res.status(201).json({ meal });
         } else {
-          return res.status(400).send({ message: 'Meal already exist' });
+          return res.status(400).send({ message: 'Meal or this Meal Id already exist' });
         }
       }
     } catch (error) {
@@ -94,15 +94,12 @@ class MealController {
     const existingMeal = req.meals.filter(edit => edit.mealId === mealId)[0];
 
     if (!existingMeal) {
-      const meal = req.body;
-      meal.mealId = mealId;
-      req.meals.push(meal);
-      res.setHeader(`Location, /api/v1/ ${mealId}`);
-      res.sendStatus(201);
+      res.sendStatus(404);
     } else {
       existingMeal.mealName = req.body.mealName;
       existingMeal.price = req.body.price;
       existingMeal.description = req.body.description;
+      existingMeal.mealAvatar = req.body.mealAvatar;
       res.sendStatus(204);
     }
   }
