@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "body-parser": "^1.18.2",
@@ -34,8 +35,8 @@
       "latest"
     ]
   },
-  "engines":{
-    "node": "9.11.1"
+  "engines": {
+    "node": "8.11.1"
   },
   "scripts": {
     "start": "babel-node ./server/app.js",
