@@ -34,6 +34,9 @@
       "latest"
     ]
   },
+  "engines":{
+    "node": "9.11.1"
+  },
   "scripts": {
     "start": "node ./dist/app.js",
     "start:dev": "nodemon --watch app --exec babel-node server/app.js",

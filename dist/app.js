@@ -28,9 +28,13 @@ var _orderRoutes = require('./routes/orderRoutes');
 
 var _orderRoutes2 = _interopRequireDefault(_orderRoutes);
 
+var _port = require('./port/port');
+
+var _port2 = _interopRequireDefault(_port);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || _port2.default;
 const app = (0, _express2.default)();
 
 app.use(_bodyParser2.default.json());

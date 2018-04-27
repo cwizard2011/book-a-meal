@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../server/port/port.js"],"names":["localPort"],"mappings":";;;;;AAAA,MAAMA,YAAY,IAAlB;;kBAEeA,S","file":"port.js","sourcesContent":["const localPort = 3000;\n\nexport default localPort;\n"]}

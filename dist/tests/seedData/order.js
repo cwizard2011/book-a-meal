@@ -41,6 +41,10 @@ const newOrder2 = {
   mealName: 'Jollof Rice',
   total: '# 5000'
 };
+const editOrder = {
+  mealName: 'Chicken Rice',
+  total: '# 7000'
+};
 
 exports.existOrder = existOrder;
 exports.newOrder1 = newOrder1;
@@ -49,4 +53,5 @@ exports.invalid1 = invalid1;
 exports.invalid2 = invalid2;
 exports.invalid3 = invalid3;
 exports.invalid4 = invalid4;
+exports.editOrder = editOrder;
 //# sourceMappingURL=order.js.map

@@ -70,38 +70,14 @@ describe('POST /api/v1/orders', () => {
   });
 });
 
-// describe('PUT /api/meals/:mealId', () => {
-//   it('should not edit meal if id does not exist', async () => {
-//     const mealId = 18;
-//     await request(app)
-//       .put(`/api/v1/meals/${mealId}`)
-//       .set('Accept', 'application/json')
-//       .send(newMeal)
-//       .expect(404);
-//   });
-//   it('should not edit meal if id does not exist', async () => {
-//     const mealId = 1;
-//     await request(app)
-//       .put(`/api/v1/meals/${mealId}`)
-//       .set('Accept', 'application/json')
-//       .send(newMeal)
-//       .expect(204);
-//   });
-// });
-// describe('DELETE /api/v1/meals/:mealId', () => {
-//   it('should not delete meal with invalid mealId', async () => {
-//     const mealId = 5;
-//     await request(app)
-//       .delete(`/api/v1/meals/${mealId}`)
-//       .set('Accept', 'application/json')
-//       .expect(404);
-//   });
-//   it('should not delete meal with valid mealId', async () => {
-//     const mealId = 1;
-//     await request(app)
-//       .delete(`/api/v1/meals/${mealId}`)
-//       .set('Accept', 'application/json')
-//       .expect(204);
-//   });
-// });
+describe('PUT /api/orders/:orderId', () => {
+  it('should not edit order if id does not exist', async () => {
+    const orderId = 18;
+    await (0, _supertest2.default)(_app2.default).put(`/api/v1/orders/${orderId}`).set('Accept', 'application/json').send(_order.editOrder).expect(404);
+  });
+  it('should not edit order with valid', async () => {
+    const orderId = 1;
+    await (0, _supertest2.default)(_app2.default).put(`/api/v1/orders/${orderId}`).set('Accept', 'application/json').send(_order.editOrder).expect(204);
+  });
+});
 //# sourceMappingURL=orderController.test.js.map
