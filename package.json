@@ -2,7 +2,7 @@
   "name": "book-a-meal",
   "version": "1.0.0",
   "description": "An app that allow a customer view meal of the day, place and order and the caterer to add meal and view order history",
-  "main": "index.js",
+  "main": "server/app.js",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
