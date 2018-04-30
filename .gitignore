@@ -1,4 +1,7 @@
 .vscode
 node_modules/
-.nyc_output
 coverage
+node_modules
+coverage
+.vscode
+.nyc_output
