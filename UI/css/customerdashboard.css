@@ -21,9 +21,9 @@
     color: white;
     cursor: pointer;
     font: 1.5em bold;
-    height: 50px;
-    width: 190px;
-    transition: all 0.5s
+    transition: all 0.5s;
+    padding: 15px;
+    height: 45px
 }
 .back-btn:hover{
     transform: skew(-10deg);
@@ -47,8 +47,8 @@
     color: white;
     cursor: pointer;
     font: 1.5em bold;
-    height: 50px;
-    width: 190px;
+    padding: 5px;
+    height: 45px;
 }
 .confirm-btn:hover{
     animation: bounce 1s;
@@ -101,31 +101,36 @@
     color: grey;
     margin-left: 35%;
 }
+.table-div {
+    margin-left: 10%;
+    background: floralwhite;
+    border-radius: 20px;
+    margin-top: 10%;
+    padding: 5%;
+    margin-bottom: 5%
+}
 
 table {
     border-collapse: collapse;
     font-family: arial, sans-serif;
-    width: 100%;
-    margin-left: 1%;  
+    width: 70%;
+    margin-left: 1%;
+    background: whitesmoke;  
 }
 .table-marg{
     margin-bottom: 5%;
 }
 td {
-	border: 1px solid #dddddd;
-    height: 70px;
     padding: 8px;
     text-align: center;
 }
 th {
-    background:#ffa64d;
-    border: 1px solid #dddddd;
     padding: 8px;
     text-align: center;
     height: 25px;
 }
 tr:nth-child(even) {
-    background-color: #12a90a;
+    background-color: #e0e0d1;
 }
 @media only screen and (min-width: 284px) 
 and (max-width: 500px) {
@@ -133,25 +138,22 @@ and (max-width: 500px) {
         border: none;
         color: white;
         cursor: pointer;
-        font-size: 16px;
-        height: 50px;
-        width: 100px;  
+        font-size: 16px; 
     }
     .btn-link{
         margin-left: 12%
     }
     .confbtn{
         margin-bottom: 10%;
-        margin-left:3%;
+        margin-left:7%;
         margin-right: 5%;
         width: 300px;
-        padding:5px;
+        padding:3px;
     }
     .confirm-btn{
         cursor: pointer;
         font-size: 12px;
-        height: 50px;
-        width: 100px;   
+    
     }
     .main-head {
         font-size: 14px;
@@ -185,25 +187,28 @@ and (max-width: 500px) {
     }
     table{
         width: 100%;
-        margin-left: 15%;
+    }
+    .table-div {
+        margin-left: 10%;
+        background: floralwhite;
+        border-radius: 20px;
+        margin-top: 10%;
+        padding: 5%;
+        width: 100%
     }
 }
 
 @media only screen and (min-width: 641px)
 and (max-width: 767px) {
     .back-btn{
-        font-size: 16px;
-        height: 60px;
-        width: 150px;  
+        font-size: 16px;  
     }
     .confirm-btn{
         cursor: pointer;
-        font-size: 16px;
-        height: 60px;
-        width: 150px;   
+        font-size: 16px;  
     }
     .confbtn{
-        margin-left:25%;
+        margin-left:18%;
         margin-right: 5%;
         width: 350px;
     }
@@ -223,7 +228,6 @@ and (max-width: 767px) {
     .order-title{
         margin-left: 30%;
         font-size: 1.2em;
-        margin-top: 10%
     }
     .sub-head {
         text-align: center;
@@ -237,23 +241,26 @@ and (max-width: 767px) {
     td {
         font-size: 10px
     }
+    .table-div {
+        margin-left: 10%;
+        background: floralwhite;
+        border-radius: 20px;
+        margin-top: 10%;
+        padding: 2%;
+    }
     
 }
 @media only screen and (min-width: 501px)
 and (max-width: 640px) {
     .back-btn{
-        font-size: 16px;
-        height: 60px;
-        width: 150px;  
+        font-size: 16px; 
     }
     .confirm-btn{
         cursor: pointer;
-        font-size: 16px;
-        height: 60px;
-        width: 150px;   
+        font-size: 16px;  
     }
     .confbtn{
-        margin-left:25%;
+        margin-left:10%;
         margin-right: 5%;
         width: 350px;
     }
@@ -273,7 +280,6 @@ and (max-width: 640px) {
     .order-title{
         margin-left: 30%;
         font-size: 1.2em;
-        margin-top: 10%
     }
     .sub-head {
         text-align: center;
@@ -287,12 +293,18 @@ and (max-width: 640px) {
     td {
         font-size: 10px
     }
+    .table-div {
+        margin-left: 10%;
+        background: floralwhite;
+        border-radius: 20px;
+        margin-top: 10%;
+        padding: 2%;
+    }
     
 }
 @media only screen and (min-width: 768px)
 and (max-width: 1020px) {
     .back-btn{
-        width: 150px;
         font: 18px bold;
     }
     .confbtn{
@@ -301,7 +313,6 @@ and (max-width: 1020px) {
         width: 350px;
     }
     .confirm-btn{
-        width: 150px;
         font: 18px bold;
         
     }
@@ -312,7 +323,6 @@ and (max-width: 1020px) {
     .order-title{
         font-size: 1.2em;
         margin-left: 35%;
-        margin-top: 10%
     }
     .main-head {
         font-size: 1.3em;
@@ -323,13 +333,18 @@ and (max-width: 1020px) {
     .order-now {
         width:100px;
     }
+    .table-div {
+        margin-left: 10%;
+        background: floralwhite;
+        border-radius: 20px;
+        padding: 2%;
+    }
 }
 @media only screen and (min-width: 1024px){
     table {
-        margin-left: 25px;  
+        margin-left: 15%;  
     }
     .back-btn{
-        width: 150px;
         font: 1.2em bold;
     }
     .confbtn{
@@ -338,7 +353,6 @@ and (max-width: 1020px) {
         width: 350px;
     }
     .confirm-btn{
-        width: 150px;
         font: 1.2em bold;
         
     }
@@ -349,9 +363,14 @@ and (max-width: 1020px) {
     .order-title{
         font-size: 1.2em;
         margin-left: 35%;
-        margin-top: 10%
     }
     .main-head {
         font-size: 1.5em;
+    }
+    .table-div {
+        margin-left: 10%;
+        background: floralwhite;
+        border-radius: 20px;
+        padding: 2%;
     }
 }
