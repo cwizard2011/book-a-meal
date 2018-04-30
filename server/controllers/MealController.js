@@ -1,4 +1,4 @@
-
+import meals from '../data/meals'
 /** @class MealController
  *
  */
@@ -33,10 +33,10 @@ class MealController {
         description: req.body.description,
         mealAvatar: req.body.mealAvatar,
       };
-      const filterMeal = req.meals.filter(check =>
+      const filterMeal = meals.filter(check =>
         check.mealName === req.body.mealName || check.mealId === req.body.mealId);
       if (filterMeal.length === 0) {
-        req.meals.push(meal);
+        meals.push(meal);
         res.status(201).json({ meal });
       } else {
         return res.status(400).send({ message: 'Meal or this Meal Id already exist' });
@@ -55,7 +55,7 @@ class MealController {
    */
   static getMeal(req, res) {
     res.status(200).json({
-      meals: req.meals,
+      meals
     });
   }
   /**
@@ -69,7 +69,7 @@ class MealController {
    */
   static getMealId(req, res) {
     const mealId = parseInt(req.params.mealId, 10);
-    const result = req.meals.filter(m => m.mealId === mealId)[0];
+    const result = meals.filter(m => m.mealId === mealId)[0];
 
     if (!result) {
       res.sendStatus(404);
@@ -87,7 +87,7 @@ class MealController {
   */
   static editMeal(req, res) {
     const mealId = parseInt(req.params.mealId, 10);
-    const existingMeal = req.meals.filter(edit => edit.mealId === mealId)[0];
+    const existingMeal = meals.filter(edit => edit.mealId === mealId)[0];
 
     if (!existingMeal) {
       res.sendStatus(404);
@@ -112,10 +112,10 @@ class MealController {
     const currentMeal = req.meals.filter(check => check.mealId === mealId)[0];
 
     if (!currentMeal) {
-      return res.sendStatus(404);
+      return res.send(404);
     }
     req.meals = req.meals.splice(currentMeal, 1);
-    res.sendStatus(204);
+    res.send(204).json({ message: 'meals deleted successfully'});
   }
 }
 

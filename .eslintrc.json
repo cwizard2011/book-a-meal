@@ -1,7 +1,6 @@
 {
   "root": true,
   "extends": "airbnb",
-  "esversion": 6,
   "env": {
     "node": true,
     "es6": true,
