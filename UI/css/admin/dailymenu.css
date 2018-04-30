@@ -94,9 +94,9 @@ figure {
     transition: all 0.5s;
 }
 .menu-image:hover{
-    -webkit-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    transform: scale(0.8);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }
 .menu-list {
     display: flex;
@@ -104,8 +104,7 @@ figure {
     margin-bottom: 5%;
 }
 .menu-main {
-    margin-bottom: 20px;
-    padding-bottom: 5%
+    width: 100%;
 }
 .menu-title {
     color: grey;
@@ -144,7 +143,6 @@ figure {
     .menu-image {
         height: 120px;
         width: 150px;
-        margin-left:0.6em;
     }
     .menu-list {
         display: flex;
@@ -153,7 +151,6 @@ figure {
     }
     .menu-main {
         margin-bottom: 20px;
-        padding-bottom: 5%
     }
     .menu-title {
         font-size: 1.2em;
@@ -246,7 +243,7 @@ figure {
     .menu-list {
         display: flex;
         justify-content: space-around;
-        margin-left: 25%;
+        margin-left: 45%;
         margin-bottom: 5%;
     }
     figure {

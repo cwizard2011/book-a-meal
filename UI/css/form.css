@@ -1,9 +1,9 @@
 .auth-head {
-    color: whitesmoke;
+    color: black;
     margin-left: 5%;
 }
 .btn-log{
-    background: #ff471a;
+    background: green;
     border: none;
     color: whitesmoke;
     cursor: pointer;
@@ -105,7 +105,7 @@
 
 .login-head {
     font-family: Lobster;
-    color: whitesmoke;
+    color: black;
     float: center;
     margin-left: 10%;
 }
