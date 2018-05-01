@@ -11,7 +11,7 @@ The development is broken down into two parts, the server side and the client si
 
 ## API DOCUMENTATION
 
-#API FEATURE
+# API FEATURE
 Book a meal has the following features
 work in progress.....
 
@@ -24,3 +24,11 @@ work in progress.....
 - Run ```npm run test``` to run all endpoints test
 
 You can also access [book-a-meal](https://petermealapp.herokuapp.com/api/v1/meals) api on heroku
+
+# TESTING WITH POSTMAN
+The API contains different endpoints with their respective payload in the table below
+
+|Endpoints|Functions|Payloads|Requets Method|
+|---------|---------|--------|--------------|
+|/api/v1/menus| Post a new menu|menu name, date, meals|POST|
+|/api/v1/menus| Get all menus|No payload| GET|
