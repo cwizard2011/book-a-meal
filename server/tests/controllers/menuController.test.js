@@ -11,7 +11,6 @@ describe('GET /api/v1/menus', () => {
       .get('/api/v1/menus')
       .set('Accept', 'application/json')
       .expect(200);
-    expect(res.body).to.be.an('object');
     expect(res.body.menus).to.be.an('array');
   });
 });
@@ -59,7 +58,6 @@ describe('POST /api/v1/menus', () => {
       .set('Accept', 'application/json')
       .send(valid)
       .expect(201);
-    expect(res.body).to.be.an('object');
     expect(res.body.menu).to.have.a.property('menuName');
     expect(res.body.menu).to.have.a.property('date');
     expect(res.body.menu).to.have.a.property('meals');

@@ -1,9 +1,9 @@
 import MenuController from '../controllers/MenuController';
-import menuMiddleware from '../middleware/menuMiddleware';
+
 
 const menuRoutes = (versionURL, app) => {
-  app.get(`${versionURL}/menus`, menuMiddleware, MenuController.getMenu);
-  app.post(`${versionURL}/menus`, menuMiddleware, MenuController.createMenu);
+  app.get(`${versionURL}/menus`, MenuController.getMenus);
+  app.post(`${versionURL}/menus`, MenuController.createMenus);
 };
 
 export default menuRoutes;

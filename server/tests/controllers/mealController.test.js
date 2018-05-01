@@ -12,7 +12,6 @@ describe('GET /api/v1/meals', () => {
       .get('/api/v1/meals')
       .set('Accept', 'application/json')
       .expect(200);
-    expect(res.body).to.be.an('object');
     expect(res.body.meals).to.be.an('array');
     expect(res.body.meals.length).to.eql(3);
   });
@@ -31,7 +30,6 @@ describe('GET /api/v1/meals/:mealId', () => {
       .get(`/api/v1/meals/${mealId}`)
       .set('Accept', 'application/json')
       .expect(200);
-    expect(res.body).to.be.an('object');
     expect(res.body).to.have.a.property('mealId');
     expect(res.body.mealId).to.be.a('number');
     expect(res.body).to.have.a.property('mealName');
@@ -101,7 +99,7 @@ describe('POST /api/v1/meals', () => {
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
       .send(existMeal1)
-      .expect(400);
+      .expect(409);
 
     expect(res.body.message)
       .to.equal('Meal or this Meal Id already exist');
@@ -111,7 +109,7 @@ describe('POST /api/v1/meals', () => {
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
       .send(existMeal2)
-      .expect(400);
+      .expect(409);
 
     expect(res.body.message)
       .to.equal('Meal or this Meal Id already exist');
@@ -122,7 +120,6 @@ describe('POST /api/v1/meals', () => {
       .set('Accept', 'application/json')
       .send(meal)
       .expect(201);
-    expect(res.body).to.be.an('object');
     expect(res.body.meal).to.have.a.property('mealName');
     expect(res.body.meal).to.have.a.property('mealId');
     expect(res.body.meal).to.have.a.property('price');
@@ -146,7 +143,7 @@ describe('PUT /api/meals/:mealId', () => {
       .put(`/api/v1/meals/${mealId}`)
       .set('Accept', 'application/json')
       .send(newMeal)
-      .expect(204);
+      .expect(200);
   });
 });
 describe('DELETE /api/v1/meals/:mealId', () => {
@@ -162,6 +159,6 @@ describe('DELETE /api/v1/meals/:mealId', () => {
     await request(app)
       .delete(`/api/v1/meals/${mealId}`)
       .set('Accept', 'application/json')
-      .expect(204);
+      .expect(200);
   });
 });

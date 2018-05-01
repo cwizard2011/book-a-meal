@@ -1,4 +1,4 @@
-import meals from '../data/meals'
+import meals from '../data/meals';
 /** @class MealController
  *
  */
@@ -12,35 +12,39 @@ class MealController {
    * @returns {Object} res
    *
    */
-  static createMeal(req, res) {
-    req.checkBody('mealId', 'id is required').notEmpty().trim();
-    req.checkBody('mealName', 'Meal name is required').notEmpty().trim();
-    req.checkBody('price', 'Price of meal is required').notEmpty().trim();
-    req.checkBody('description', 'Meal description is required').notEmpty().trim();
-    req.checkBody('mealAvatar', 'Image of meal is required').notEmpty().trim();
+  static createMeals(req, res) {
+    try {
+      req.checkBody('mealId', 'id is required').notEmpty().trim();
+      req.checkBody('mealName', 'Meal name is required').notEmpty().isString().trim();
+      req.checkBody('price', 'Price of meal is required').notEmpty().isString().trim();
+      req.checkBody('description', 'Meal description is required').notEmpty().isString().trim();
+      req.checkBody('mealAvatar', 'Image of meal is required').notEmpty().trim();
 
-    const requestErrors = req.validationErrors();
+      const requestErrors = req.validationErrors();
 
-    if (requestErrors) {
-      res.status(400).json({
-        errors: requestErrors,
-      });
-    } else {
-      const meal = {
-        mealId: req.body.mealId,
-        mealName: req.body.mealName,
-        price: req.body.price,
-        description: req.body.description,
-        mealAvatar: req.body.mealAvatar,
-      };
-      const filterMeal = meals.filter(check =>
-        check.mealName === req.body.mealName || check.mealId === req.body.mealId);
-      if (filterMeal.length === 0) {
-        meals.push(meal);
-        res.status(201).json({ meal });
+      if (requestErrors) {
+        res.status(400).json({
+          errors: requestErrors,
+        });
       } else {
-        return res.status(400).send({ message: 'Meal or this Meal Id already exist' });
+        const meal = {
+          mealId: req.body.mealId,
+          mealName: req.body.mealName,
+          price: req.body.price,
+          description: req.body.description,
+          mealAvatar: req.body.mealAvatar,
+        };
+        const filterMeal = meals.filter(check =>
+          check.mealName === req.body.mealName || check.mealId === req.body.mealId);
+        if (filterMeal.length === 0) {
+          meals.push(meal);
+          res.status(201).json({ meal });
+        } else {
+          return res.status(409).send({ message: 'Meal or this Meal Id already exist' });
+        }
       }
+    } catch (error) {
+      res.status(500).json({ error: 'Internal server error' });
     }
   }
 
@@ -53,10 +57,11 @@ class MealController {
    * @returns {Object} res
    *
    */
-  static getMeal(req, res) {
-    res.status(200).json({
-      meals
-    });
+  static getMeals(req, res) {
+    if (meals.length === 0) {
+      res.status(404).json({ error: 'no meals found' });
+    }
+    res.status(200).json({ meals });
   }
   /**
    * get meal by id
@@ -67,12 +72,12 @@ class MealController {
    * @returns {Object} res
    *
    */
-  static getMealId(req, res) {
+  static getMealById(req, res) {
     const mealId = parseInt(req.params.mealId, 10);
     const result = meals.filter(m => m.mealId === mealId)[0];
 
     if (!result) {
-      res.sendStatus(404);
+      res.status(404).json({ error: 'Meal not found' });
     } else {
       res.send(result);
     }
@@ -90,13 +95,10 @@ class MealController {
     const existingMeal = meals.filter(edit => edit.mealId === mealId)[0];
 
     if (!existingMeal) {
-      res.sendStatus(404);
+      res.status(404).json({ error: 'meal not found' });
     } else {
-      existingMeal.mealName = req.body.mealName;
       existingMeal.price = req.body.price;
-      existingMeal.description = req.body.description;
-      existingMeal.mealAvatar = req.body.mealAvatar;
-      res.sendStatus(204);
+      res.status(200).json({ existingMeal, message: ' price of meal edited successfully' });
     }
   }
   /**
@@ -112,10 +114,10 @@ class MealController {
     const currentMeal = req.meals.filter(check => check.mealId === mealId)[0];
 
     if (!currentMeal) {
-      return res.send(404);
+      return res.status(404).json({ error: 'Meal not found' });
     }
     req.meals = req.meals.splice(currentMeal, 1);
-    res.send(204).json({ message: 'meals deleted successfully'});
+    res.status(200).json({ currentMeal, message: 'meals deleted successfully' });
   }
 }
 

@@ -1,4 +1,4 @@
-// import menus from '../data/menus';
+import menus from '../data/menus';
 /**
  * @class MenuController
  */
@@ -12,10 +12,10 @@ class MenuController {
    * @returns {Object} res
    *
    */
-  static createMenu(req, res) {
-    req.checkBody('menuName', 'Menu name is required').notEmpty().trim();
-    req.checkBody('meals', 'Meals on menu are required').notEmpty().trim();
-    req.checkBody('date', 'Date of menu is required').notEmpty().trim();
+  static createMenus(req, res) {
+    req.checkBody('menuName', 'Menu name is required').notEmpty().isString().trim();
+    req.checkBody('meals', 'Meals on menu are required').notEmpty().isArray().trim();
+    req.checkBody('date', 'Date of menu is required').notEmpty().isString().trim();
 
     const requestErrors = req.validationErrors();
 
@@ -23,8 +23,6 @@ class MenuController {
       res.status(400).json({
         errors: requestErrors,
       });
-    } else if (typeof req.body.menuName !== 'string') {
-      res.sendStatus(400);
     } else {
       req.sanitizeBody('menuName').escape();
       const menu = {
@@ -32,8 +30,8 @@ class MenuController {
         date: req.body.date,
         meals: [req.body.meals],
       };
-      req.menus.push(menu);
-      res.status(201).json({ menu });
+      menus.push(menu);
+      res.status(201).json({ menu, message: 'menu added successfully' });
     }
   }
   /**
@@ -45,9 +43,12 @@ class MenuController {
    * @returns {Object} res
    *
    */
-  static getMenu(req, res) {
+  static getMenus(req, res) {
+    if (menus.length === 0) {
+      res.status(404).json({ error: 'no menu found' });
+    }
     res.status(200).json({
-      menus: req.menus,
+      menus
     });
   }
 }

@@ -11,7 +11,6 @@ describe('GET /api/v1/orders', () => {
       .get('/api/v1/orders')
       .set('Accept', 'application/json')
       .expect(200);
-    expect(res.body).to.be.an('object');
     expect(res.body.orders).to.be.an('array');
     expect(res.body.orders.length).to.eql(2);
   });
@@ -62,7 +61,7 @@ describe('POST /api/v1/orders', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .send(existOrder)
-      .expect(400);
+      .expect(409);
 
     expect(res.body.message)
       .to.equal('Order already exist');
@@ -73,7 +72,6 @@ describe('POST /api/v1/orders', () => {
       .set('Accept', 'application/json')
       .send(newOrder1)
       .expect(201);
-    expect(res.body).to.be.an('object');
     expect(res.body.order).to.have.a.property('orderId');
     expect(res.body.order).to.have.a.property('customerId');
     expect(res.body.order).to.have.a.property('mealName');
@@ -85,7 +83,6 @@ describe('POST /api/v1/orders', () => {
       .set('Accept', 'application/json')
       .send(newOrder2)
       .expect(201);
-    expect(res.body).to.be.an('object');
     expect(res.body.order).to.have.a.property('orderId');
     expect(res.body.order).to.have.a.property('customerId');
     expect(res.body.order).to.have.a.property('mealName');
@@ -108,6 +105,6 @@ describe('PUT /api/orders/:orderId', () => {
       .put(`/api/v1/orders/${orderId}`)
       .set('Accept', 'application/json')
       .send(editOrder)
-      .expect(204);
+      .expect(200);
   });
 });

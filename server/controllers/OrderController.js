@@ -1,4 +1,4 @@
-
+import orders from '../data/orders';
 /** @class OrderController
  *
  */
@@ -12,10 +12,10 @@ class OrderController {
    * @returns {Object} res
    *
    */
-  static createOrder(req, res) {
+  static createOrders(req, res) {
     req.checkBody('orderId', 'Order id is required').notEmpty().trim();
     req.checkBody('customerId', 'Customer Id is required').notEmpty().trim();
-    req.checkBody('mealName', 'Name of meal is required').notEmpty().trim();
+    req.checkBody('mealName', 'Name of meal is required').notEmpty().isString().trim();
     req.checkBody('total', 'Order total is required').notEmpty().trim();
 
     const requestErrors = req.validationErrors();
@@ -31,13 +31,13 @@ class OrderController {
         mealName: req.body.mealName,
         total: req.body.total,
       };
-      const filterOrder = req.orders.filter(check =>
+      const filterOrder = orders.filter(check =>
         check.orderId === req.body.orderId && check.customerId === req.body.customerId);
       if (filterOrder.length === 0) {
-        req.orders.push(order);
-        res.status(201).json({ order });
+        orders.push(order);
+        res.status(201).json({ order, message: 'Order created successfully' });
       } else {
-        return res.status(400).send({ message: 'Order already exist' });
+        return res.status(409).send({ message: 'Order already exist' });
       }
     }
   }
@@ -51,9 +51,12 @@ class OrderController {
    * @returns {Object} res
    *
    */
-  static getOrder(req, res) {
+  static getOrders(req, res) {
+    if (orders.length === 0) {
+      res.status(404).json({ error: 'no order found' });
+    }
     res.status(200).json({
-      orders: req.orders,
+      orders,
     });
   }
   /**
@@ -67,14 +70,14 @@ class OrderController {
    */
   static editOrder(req, res) {
     const orderId = parseInt(req.params.orderId, 10);
-    const existingOrder = req.orders.filter(edit => edit.orderId === orderId)[0];
+    const existingOrder = orders.filter(edit => edit.orderId === orderId)[0];
 
     if (!existingOrder) {
-        res.sendStatus(404);
+      res.status(404).json({ error: 'Order not found' });
     } else {
       existingOrder.mealName = req.body.mealName;
       existingOrder.total = req.body.total;
-      res.sendStatus(204);
+      res.status(200).json({ existingOrder, message: 'Order edited successfully' });
     }
   }
 }
