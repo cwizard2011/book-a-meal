@@ -18,7 +18,7 @@ const invalid4 = {
   customerId: 22,
   mealName: 'Jollof Rice',
 };
-const existOrder= {
+const existOrder = {
   orderId: 1,
   customerId: 22,
   mealName: 'Jollof Rice',
