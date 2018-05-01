@@ -31,4 +31,26 @@ The API contains different endpoints with their respective payload in the table 
 |Endpoints|Functions|Payloads|Requets Method|
 |---------|---------|--------|--------------|
 |/api/v1/menus| Post a new menu|menu name, date, meals|POST|
+|/api/v1/meals| Post a new meal|meal Id,meal name, description, meal avatar, price| POST|
+|/api/v1/orders| Post a new order|order Id, customer id, meal name, total| POST|
 |/api/v1/menus| Get all menus|No payload| GET|
+|/api/v1/meals| Get all meals|No payload| GET|
+|/api/v1/orders| Get all orders|No payload| GET|
+|/api/v1/meals/:orderId| Edit an order|No payload| PUT|
+|/api/v1/meals/:mealId| Get meal by Id|No payload| GET|
+|/api/v1/meals/:mealId| Edit a meal|No payload| PUT|
+|/api/v1/meals/:mealId| Delete a meal|No payload| DELETE|
+
+# TECHNOLOGIES USED\
+- [Node-js](https://nodejs.org/en/)Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+- [Javascript-ES6](https://en.wikipedia.org/wiki/ECMAScript) The 6th edition of EcmaScript, officially known as ECMAScript 2015, was finalized in June 2015. This update adds significant new syntax for writing complex applications, including classes and modules, but defines them semantically in the same terms as ECMAScript 5 strict mode
+- [Babel](https://babeljs.io/) used for transpiling codes from ES6 to ES5
+- [Mocha](https://mochajs.org/) used for setting up tests
+
+....More still loading
+
+# Coding style
+- Airbnb is used for style guide to ensure clean code
+
+# Author
+Adeoye Peter
