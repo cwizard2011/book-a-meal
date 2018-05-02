@@ -27,12 +27,19 @@ class MealController {
           errors: requestErrors,
         });
       } else {
+        const {
+          mealId,
+          mealName,
+          price,
+          description,
+          mealAvatar,
+        } = req.body;
         const meal = {
-          mealId: req.body.mealId,
-          mealName: req.body.mealName,
-          price: req.body.price,
-          description: req.body.description,
-          mealAvatar: req.body.mealAvatar,
+          mealId,
+          mealName,
+          price,
+          description,
+          mealAvatar
         };
         const filterMeal = meals.filter(check =>
           check.mealName === req.body.mealName || check.mealId === req.body.mealId);

@@ -26,12 +26,19 @@ class OrderController {
           errors: requestErrors,
         });
       } else {
+        const {
+          orderId,
+          customerId,
+          mealName,
+          total,
+        } = req.body;
         const order = {
-          orderId: req.body.orderId,
-          customerId: req.body.customerId,
-          mealName: req.body.mealName,
-          total: req.body.total,
+          orderId,
+          customerId,
+          mealName,
+          total
         };
+
         const filterOrder = orders.filter(check =>
           check.orderId === req.body.orderId && check.customerId === req.body.customerId);
         if (filterOrder.length === 0) {
