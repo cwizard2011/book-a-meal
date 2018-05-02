@@ -26,11 +26,18 @@ class MenuController {
         });
       } else {
         req.sanitizeBody('menuName').escape();
+        const {
+          menuName,
+          date,
+          meals,
+        } = req.body;
+
         const menu = {
-          menuName: req.body.menuName,
-          date: req.body.date,
-          meals: [req.body.meals],
+          menuName,
+          date,
+          meals,
         };
+
         menus.push(menu);
         res.status(201).json({ menu, message: 'menu added successfully' });
       }
