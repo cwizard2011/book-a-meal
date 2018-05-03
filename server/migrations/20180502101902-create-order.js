@@ -7,9 +7,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      mealName: {
+      menuName: {
         type: Sequelize.STRING,
         unique: true,
+        allowNull: false,
       },
       date: Sequelize.DATE,
       meals: Sequelize.STRING,
@@ -27,14 +28,6 @@ module.exports = {
           model: 'Users',
           key: 'id',
           as: 'userId'
-        }
-      },
-      mealId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Meals',
-          key: 'id',
-          as: 'mealId'
         }
       },
     }),

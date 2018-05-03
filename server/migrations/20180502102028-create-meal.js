@@ -10,6 +10,7 @@ module.exports = {
       mealName: {
         type: Sequelize.STRING,
         unique: true,
+        allowNull: false,
       },
       description: Sequelize.STRING,
       mealAvatar: Sequelize.STRING,
@@ -38,6 +39,14 @@ module.exports = {
           model: 'Menus',
           key: 'id',
           as: 'menuId'
+        }
+      },
+      orderId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Orders',
+          key: 'id',
+          as: 'orderId'
         }
       },
     }),

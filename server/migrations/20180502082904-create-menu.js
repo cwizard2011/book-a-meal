@@ -10,6 +10,7 @@ module.exports = {
       menuName: {
         type: Sequelize.STRING,
         unique: true,
+        allowNull: false,
       },
       date: Sequelize.DATE,
       meals: Sequelize.STRING,

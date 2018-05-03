@@ -1,4 +1,4 @@
-import menus from '../data/menus';
+import Menu from '../services/Menu';
 /**
  * @class MenuController
  */
@@ -13,30 +13,26 @@ class MenuController {
    *
    */
   static createMenus(req, res) {
-    try {
-      req.checkBody('menuName', 'Menu name is required').notEmpty().isString().trim();
-      req.checkBody('meals', 'Meals on menu are required').notEmpty().isArray().trim();
-      req.checkBody('date', 'Date of menu is required').notEmpty().isString().trim();
+    req.checkBody('menuName', 'Menu name is required').notEmpty().isString().trim();
 
-      const requestErrors = req.validationErrors();
+    const requestErrors = req.validationErrors();
 
-      if (requestErrors) {
-        res.status(400).json({
-          errors: requestErrors,
+    if (requestErrors) {
+      res.status(400).json({
+        errors: requestErrors,
+      });
+    } else {
+      req.sanitizeBody('menuName').escape();
+      const { menuName, userId } = req.body;
+      Menu.postMenu(menuName, userId, () => {
+        res.status(201).json({
+          message: 'Menu created', 
+          menu: {
+            menuName,
+            userId
+          }
         });
-      } else {
-        req.sanitizeBody('menuName').escape();
-        const {
-          menuName,
-          date,
-          meals,
-        } = req.body;
-        const menu = { menuName, date, meals };
-        menus.push(menu);
-        res.status(201).json({ menu, message: 'menu added successfully' });
-      }
-    } catch (error) {
-      res.status(500).json({ error: 'server error' });
+      });
     }
   }
   /**

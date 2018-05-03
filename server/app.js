@@ -4,7 +4,7 @@ import expressValidator from 'express-validator';
 import menuRoutes from './routes/menuRoutes';
 import mealRoutes from './routes/mealRoutes';
 import orderRoutes from './routes/orderRoutes';
-
+import userRoutes from './routes/userRoute';
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -17,6 +17,7 @@ app.use(expressValidator());
 menuRoutes('/api/v1', app);
 mealRoutes('/api/v1', app);
 orderRoutes('/api/v1', app);
+userRoutes('/api/v1', app);
 
 app.listen(port);
 
