@@ -1,4 +1,7 @@
-import Menu from '../services/Menu';
+import database from '../models';
+
+const Menus = database.Menu;
+
 /**
  * @class MenuController
  */
@@ -13,27 +16,28 @@ class MenuController {
    *
    */
   static createMenus(req, res) {
-    req.checkBody('menuName', 'Menu name is required').notEmpty().isString().trim();
-
-    const requestErrors = req.validationErrors();
-
-    if (requestErrors) {
-      res.status(400).json({
-        errors: requestErrors,
+    const {
+      id,
+      menuName,
+      meals,
+      userId
+    } = req.body;
+    Menus.create({
+      id,
+      menuName,
+      meals,
+      userId
+    }).then((menus) => {
+      res.status(201).json({
+        message: 'Menu created',
+        menu: {
+          id: menus.id,
+          menuName: menus.menuName,
+          meals: menus.meals,
+          userId: menus.userId
+        }
       });
-    } else {
-      req.sanitizeBody('menuName').escape();
-      const { menuName, userId } = req.body;
-      Menu.postMenu(menuName, userId, () => {
-        res.status(201).json({
-          message: 'Menu created', 
-          menu: {
-            menuName,
-            userId
-          }
-        });
-      });
-    }
+    });
   }
   /**
    * Get menu
@@ -45,16 +49,11 @@ class MenuController {
    *
    */
   static getMenus(req, res) {
-    try {
-      if (menus.length === 0) {
-        res.status(404).json({ error: 'no menu found' });
-      }
+    Menus.findAll().then((menus) => {
       res.status(200).json({
-        menus
+        message: 'Menu found', menus
       });
-    } catch (error) {
-      res.status(500).json({ error: 'server error' });
-    }
+    });
   }
 }
 export default MenuController;

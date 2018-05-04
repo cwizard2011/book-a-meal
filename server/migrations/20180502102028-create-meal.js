@@ -12,9 +12,18 @@ module.exports = {
         unique: true,
         allowNull: false,
       },
-      description: Sequelize.STRING,
-      mealAvatar: Sequelize.STRING,
-      price: Sequelize.STRING,
+      description: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      mealAvatar: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      price: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -25,29 +34,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Users',
-          key: 'id',
-          as: 'userId'
-        }
-      },
-      menuId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Menus',
-          key: 'id',
-          as: 'menuId'
-        }
-      },
-      orderId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Orders',
-          key: 'id',
-          as: 'orderId'
-        }
+        allowNull: false
       },
     }),
   down: queryInterface/* , Sequelize */ =>

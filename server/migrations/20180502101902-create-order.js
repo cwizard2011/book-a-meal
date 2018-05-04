@@ -7,13 +7,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      menuName: {
+      mealName: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false,
       },
       date: Sequelize.DATE,
-      meals: Sequelize.STRING,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -24,12 +23,12 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-          as: 'userId'
-        }
+        allowNull: false,
       },
+      total: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      }
     }),
   down: queryInterface/* , Sequelize */ =>
     queryInterface.dropTable('Orders')

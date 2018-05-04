@@ -5,21 +5,14 @@ export default (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
     },
-    date: DataTypes.DATE,
-    meals: DataTypes.STRING,
-    mealId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER,
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    total: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   });
-  Order.associate = (models) => {
-    Order.belongsTo(models.User, {
-      foreignKey: 'userId',
-      as: 'order',
-      through: 'ordermeal'
-    });
-    Order.belongsTo(models.Meal, {
-      foreignKey: 'mealId',
-      as: 'orders',
-    });
-  };
   return Order;
 };

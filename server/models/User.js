@@ -19,26 +19,12 @@ export default (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     role: {
       type: DataTypes.ENUM,
-      values: ['user', 'admin']
+      values: ['user', 'admin', 'disabled']
     },
     phoneNumber: {
       type: DataTypes.STRING,
       allowNull: true
     },
   });
-  User.associate = (models) => {
-    User.hasMany(models.Meal, {
-      foreignKey: 'userId',
-      as: 'meal'
-    });
-    User.hasMany(models.Menu, {
-      foreignKey: 'userId',
-      as: 'menu'
-    });
-    User.hasMany(models.Order, {
-      foreignKey: 'userId',
-      as: 'order'
-    });
-  };
   return User;
 };

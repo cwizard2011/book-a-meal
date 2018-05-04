@@ -1,4 +1,7 @@
+import Sequelize from 'sequelize';
 import database from '../models';
+
+const validationError = Sequelize.ValidationError;
 
 const Menus = database.Menu;
 const Meals = database.Meal;
@@ -14,36 +17,30 @@ export default class Menu {
  *
  * @param {String} menuName the name of the menu
  * @param {String} meal the name of the meal
- * @param {Number} userId the id of the creator
+ * @param {Number} userId the id of the user
  * @param {Function} done callback
  *
  * @return {Object} insertedData
  */
   static postMenu(menuName, meal, userId, done) {
-    const users = Users.findAll({
-      where: {
-        userId,
-        role: 'admin',
-      },
-    }).then((user) => {
-      done(user);
-    }).catch((err) => {
-      done({ err });
-    });
-    if (!users) {
-      return done({ err: 'Only Caterers are allowed to post menu' });
-    }
-    return Menus.findOrCreate({
-      where: {
-        menuName,
-      },
-      defaults: {
-        userId,
-      }
+    return Menus.create({
+      menuName,
+      meal,
+      userId
     }).then((menu) => {
       done(menu);
     }).catch((err) => {
-      done({ err });
+      if (err instanceof validationError) {
+        if (err.errors[0].message === 'email must be unique') {
+          done('email already existing');
+        } else if (err.errors[0].message === '') {
+          done(`${err.errors[0].path} must be supplied`);
+        } else {
+          done(err.errors[0].message);
+        }
+      } else {
+        done({ err });
+      }
     });
   }
 

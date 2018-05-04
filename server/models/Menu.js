@@ -5,18 +5,21 @@ export default (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
     },
-    meals: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
+    meals: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      get: function() {
+        return JSON.parse(this.getDataValue('meals'));
+    }, 
+    set: function(val) {
+        return this.setDataValue('meals', JSON.stringify(val));
+    }
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      unique: true,
+      allowNull: false,
+    },
   });
-  Menu.associate = (models) => {
-    Menu.belongsTo(models.User, {
-      foreignKey: 'userId',
-      as: 'menu'
-    });
-    Menu.hasMany(models.Meal, {
-      foreignKey: 'menuId',
-      as: 'menumeal'
-    });
-  };
   return Menu;
 };

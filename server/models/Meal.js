@@ -5,25 +5,22 @@ export default (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
     },
-    description: DataTypes.STRING,
-    mealAvatar: DataTypes.STRING,
-    price: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
-    menuId: DataTypes.INTEGER
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    mealAvatar: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   });
-  Meal.associate = (models) => {
-    Meal.belongsTo(models.Menu, {
-      foreignKey: 'menuId',
-      as: 'menu'
-    });
-    Meal.belongsTo(models.User, {
-      foreignKey: 'userId',
-      as: 'usermeal'
-    });
-    Meal.hasMany(models.Order, {
-      foreignKey: 'mealId',
-      as: 'orders'
-    });
-  };
   return Meal;
 };

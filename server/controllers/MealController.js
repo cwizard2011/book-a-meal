@@ -1,4 +1,6 @@
-import meals from '../data/meals';
+import database from '../models';
+
+const Meals = database.Meal;
 /** @class MealController
  *
  */
@@ -13,46 +15,32 @@ class MealController {
    *
    */
   static createMeals(req, res) {
-    try {
-      req.checkBody('mealId', 'id is required').notEmpty().trim();
-      req.checkBody('mealName', 'Meal name is required').notEmpty().isString().trim();
-      req.checkBody('price', 'Price of meal is required').notEmpty().isString().trim();
-      req.checkBody('description', 'Meal description is required').notEmpty().isString().trim();
-      req.checkBody('mealAvatar', 'Image of meal is required').notEmpty().trim();
-
-      const requestErrors = req.validationErrors();
-
-      if (requestErrors) {
-        res.status(400).json({
-          errors: requestErrors,
-        });
-      } else {
-        const {
-          mealId,
-          mealName,
-          price,
-          description,
-          mealAvatar,
-        } = req.body;
-        const meal = {
-          mealId,
-          mealName,
-          price,
-          description,
-          mealAvatar
-        };
-        const filterMeal = meals.filter(check =>
-          check.mealName === req.body.mealName || check.mealId === req.body.mealId);
-        if (filterMeal.length === 0) {
-          meals.push(meal);
-          res.status(201).json({ meal });
-        } else {
-          return res.status(409).send({ message: 'Meal or this Meal Id already exist' });
+    const {
+      mealName,
+      description,
+      userId,
+      mealAvatar,
+      price,
+    } = req.body;
+    Meals.create({
+      mealName,
+      description,
+      userId,
+      mealAvatar,
+      price,
+    }).then((meals) => {
+      res.status(201).json({
+        message: 'Meal created',
+        meals: {
+          id: meals.id,
+          mealName: meals.mealName,
+          userId: meals.userId,
+          mealAvatar: meals.mealAvatar,
+          price: meals.price,
+          description: meals.description,
         }
-      }
-    } catch (error) {
-      res.status(500).json({ error: 'Internal server error' });
-    }
+      });
+    });
   }
 
   /**
@@ -65,14 +53,11 @@ class MealController {
    *
    */
   static getMeals(req, res) {
-    try {
-      if (meals.length === 0) {
-        res.status(404).json({ error: 'no meals found' });
-      }
-      res.status(200).json({ meals });
-    } catch (error) {
-      res.status(500).json({ error: 'server error' });
-    }
+    Meals.findAll().then((meals) => {
+      res.status(200).json({
+        message: 'Meal found', meals
+      });
+    });
   }
   /**
    * get meal by id
@@ -84,18 +69,13 @@ class MealController {
    *
    */
   static getMealById(req, res) {
-    try {
-      const mealId = parseInt(req.params.mealId, 10);
-      const result = meals.filter(m => m.mealId === mealId)[0];
-
-      if (!result) {
-        res.status(404).json({ error: 'Meal not found' });
-      } else {
-        res.send(result);
-      }
-    } catch (error) {
-      res.status(500).json({ error: 'server error' });
-    }
+    const mealId = req.params.id;
+    Meals.findById(mealId)
+      .then((meals) => {
+        res.status(200).json({
+          message: 'Meal found', meals
+        });
+      });
   }
   /**
    *Edit meals by Id
@@ -106,22 +86,28 @@ class MealController {
    * @returns {Object} res
   */
   static editMeal(req, res) {
-    try {
-      const mealId = parseInt(req.params.mealId, 10);
-      const existingMeal = meals.filter(edit => edit.mealId === mealId)[0];
-
-      if (!existingMeal) {
-        res.status(404).json({ error: 'meal not found' });
-      } else {
-        existingMeal.price = req.body.price;
-        res.status(200).json({ existingMeal, message: ' price of meal edited successfully' });
-      }
-    } catch (error) {
-      res.status(500).json({ error: 'server error' });
-    }
+    const { id } = req.params;
+    const {
+      mealName,
+      description,
+      mealAvatar,
+      price,
+    } = req.body;
+    Meals.update(
+      {
+        mealName,
+        description,
+        mealAvatar,
+        price
+      },
+      { returning: true, where: { id } }
+    )
+      .then(([rows, [updatedMeal]]) => {
+        res.status(200).json({ message: 'update succesful', rows, updatedMeal });
+      });
   }
   /**
-   *Edit meals by Id
+   *delete meals by Id
    *
    * @static
    * @param {Object} req - request object
@@ -129,18 +115,12 @@ class MealController {
    * @returns {Object} res
   */
   static removeMeal(req, res) {
-    try {
-      const mealId = parseInt(req.params.mealId, 10);
-      const currentMeal = req.meals.filter(check => check.mealId === mealId)[0];
-
-      if (!currentMeal) {
-        return res.status(404).json({ error: 'Meal not found' });
-      }
-      req.meals = req.meals.splice(currentMeal, 1);
-      res.status(200).json({ currentMeal, message: 'meals deleted successfully' });
-    } catch (error) {
-      res.status(500).json({ error: 'server error' });
-    }
+    const { id } = req.params;
+    Meals.destroy({
+      where: { id }
+    }).then((deletedMeal) => {
+      res.status(200).json({ message: 'meal deleted successfully', deletedMeal });
+    });
   }
 }
 
