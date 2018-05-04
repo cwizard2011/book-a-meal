@@ -33,8 +33,8 @@ export default class UserControllers {
       phoneNumber
     } = req.body;
     const hashedPassword = bcrypt.hashSync(password, salt);
-    if (/^[a-zA-Z]{5,12}$/.test(username) === false) {
-      res.status(400).json({ message: 'Username should contain only letters and must have between 5-12 characters' });
+    if (/^[a-zA-Z]{8,30}$/.test(username) === false) {
+      res.status(400).json({ message: 'Username should contain only letters and must have between 8-30 characters' });
     } else if (/^[0-9]{11,}$/.test(phoneNumber) === false) {
       res.status(400).json({ message: 'Phone number should not contain letters and should be valid' });
     } else {

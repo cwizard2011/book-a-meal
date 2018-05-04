@@ -1,8 +1,8 @@
 import database from '../models';
 
 const Meals = database.Meal;
-/** @class MealController
- *
+/**
+ * @class MealController
  */
 class MealController {
   /**
