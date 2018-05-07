@@ -3,16 +3,15 @@ export default (sequelize, DataTypes) => {
     mealName: {
       type: DataTypes.STRING,
       unique: true,
+    },
+    mealId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
+    total: DataTypes.STRING,
+    expires: DataTypes.DATE,
+    date: {
+      type: DataTypes.DATE,
       allowNull: false,
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    total: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    }
   });
   return Order;
 };

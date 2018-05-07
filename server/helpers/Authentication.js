@@ -1,8 +1,10 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 const jwtSecret = process.env.JWT_SECRET;
+
 /**
  * @description: protects the routes with jwt
  *
@@ -39,6 +41,7 @@ export default class Authentication {
         if (decode === undefined) {
           return res.status(401).json({ message: 'Oops! Access denied. Kindly login' });
         }
+        req.decode = decode;
         return next();
       });
     } else {

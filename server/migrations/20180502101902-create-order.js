@@ -10,9 +10,7 @@ module.exports = {
       mealName: {
         type: Sequelize.STRING,
         unique: true,
-        allowNull: false,
       },
-      date: Sequelize.DATE,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -21,12 +19,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      total: {
-        type: Sequelize.STRING,
+      userId: Sequelize.INTEGER,
+      total: Sequelize.STRING,
+      mealId: Sequelize.INTEGER,
+      expires: Sequelize.DATE,
+      date: {
+        type: Sequelize.DATE,
         allowNull: false,
       }
     }),

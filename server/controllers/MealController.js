@@ -1,5 +1,7 @@
+import Sequelize from 'sequelize';
 import database from '../models';
 
+const validationError = Sequelize.ValidationError;
 const Meals = database.Meal;
 /**
  * @class MealController
@@ -33,13 +35,25 @@ class MealController {
         message: 'Meal created',
         meals: {
           id: meals.id,
-          mealName: meals.mealName,
-          userId: meals.userId,
-          mealAvatar: meals.mealAvatar,
-          price: meals.price,
-          description: meals.description,
+          mealName,
+          userId,
+          mealAvatar,
+          price,
+          description,
         }
       });
+    }).catch((err) => {
+      if (err instanceof validationError) {
+        if (err.errors[0].message === 'mealName must be unique') {
+          res.status(400).json({ message: 'meal already existing' });
+        } else if (err.errors[0].message === '') {
+          res.status(400).json({ message: `${err.errors[0]} must be supplied` });
+        } else {
+          res.status(400).json({ message: err.errors[0].message });
+        }
+      } else {
+        res.json({ err });
+      }
     });
   }
 
@@ -54,9 +68,15 @@ class MealController {
    */
   static getMeals(req, res) {
     Meals.findAll().then((meals) => {
-      res.status(200).json({
-        message: 'Meal found', meals
-      });
+      if (meals.length === 0) {
+        res.status(404).json({ message: 'No meal in the database, Please preapare a meal' });
+      } else {
+        res.status(200).json({
+          message: 'Meal found', meals
+        });
+      }
+    }).catch(() => {
+      res.status(500).json({ message: 'Oops! My bad, something at my end' });
     });
   }
   /**
@@ -72,13 +92,19 @@ class MealController {
     const mealId = req.params.id;
     Meals.findById(mealId)
       .then((meals) => {
-        res.status(200).json({
-          message: 'Meal found', meals
-        });
+        if (!meals) {
+          res.status(404).json({ message: 'Can\'t get meal, meal not in database' });
+        } else {
+          res.status(200).json({
+            message: 'Meal found', meals
+          });
+        }
+      }).catch(() => {
+        res.status(500).json({ message: 'Oops! My bad, something wrong at my end' });
       });
   }
   /**
-   *Edit meals by Id
+   * Edit meals by Id
    *
    * @static
    * @param {Object} req - request object
@@ -103,11 +129,17 @@ class MealController {
       { returning: true, where: { id } }
     )
       .then(([rows, [updatedMeal]]) => {
-        res.status(200).json({ message: 'update succesful', rows, updatedMeal });
+        if (!rows || !updatedMeal) {
+          res.status(404).send({ message: 'Can\'t update meal, Meal not found in the database' });
+        } else {
+          res.status(200).send({ message: 'update succesful', rows, updatedMeal });
+        }
+      }).catch(() => {
+        res.status(500).send({ message: 'Oops! My bad, something at my end' });
       });
   }
   /**
-   *delete meals by Id
+   * delete meals by Id
    *
    * @static
    * @param {Object} req - request object
@@ -119,7 +151,13 @@ class MealController {
     Meals.destroy({
       where: { id }
     }).then((deletedMeal) => {
-      res.status(200).json({ message: 'meal deleted successfully', deletedMeal });
+      if (!deletedMeal) {
+        res.status(400).json({ message: 'Can\'t delete meal, Meal not found in the database' });
+      } else {
+        res.status(200).json({ message: 'meal deleted successfully', deletedMeal });
+      }
+    }).catch(() => {
+      res.status(500).json({ message: 'Oops! My bad, something at my end' });
     });
   }
 }

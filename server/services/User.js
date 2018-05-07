@@ -61,6 +61,24 @@ class User {
       done(user);
     });
   }
+  /**
+ * @description: find a user using the username
+ *
+ * @param {String} userName username of the user
+ * @param {Function} done callback function
+ *
+ * @return {Object} userData
+ */
+  static findAdmin(userName, done) {
+    return Users.findAll({
+      where: {
+        username: { $iLike: userName },
+        role: 'admin'
+      }
+    }).then((user) => {
+      done(user);
+    });
+  }
 }
 
 export default User;

@@ -4,7 +4,6 @@
   "description": "An app that allow a customer view meal of the day, place and order and the caterer to add meal and view order history",
   "main": "server/app.js",
   "dependencies": {
-    "acl": "^0.4.11",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
@@ -17,6 +16,7 @@
     "express": "^4.16.3",
     "express-validator": "^5.1.2",
     "jsonwebtoken": "^8.2.1",
+    "moment": "^2.22.1",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.6",

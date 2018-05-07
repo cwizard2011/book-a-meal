@@ -1,3 +1,4 @@
+import moment from 'moment';
 import database from '../models';
 
 const Orders = database.Order;
@@ -18,22 +19,31 @@ class OrderController {
     const {
       mealName,
       userId,
-      total
+      total,
+      mealId
     } = req.body;
     Orders.create({
       mealName,
       userId,
-      total
+      total,
+      mealId,
+      expires: moment().add(2, 'hours'),
+      date: moment()
     }).then((order) => {
-      res.status(201).json({
-        message: 'Order created',
-        order: {
-          id: order.id,
-          mealName: order.mealName,
-          userId: order.userId,
-          total: order.total
-        }
-      });
+      if (order instanceof Object && order.dataValues !== undefined) {
+        res.status(201).json({
+          message: 'Order created',
+          order: {
+            id: order.id,
+            mealId,
+            mealName,
+            userId,
+            total,
+          }
+        });
+      }
+    }).catch(() => {
+      res.status(500).send({ message: 'Oops! My bad, something at my end' });
     });
   }
 
@@ -48,9 +58,15 @@ class OrderController {
    */
   static getOrders(req, res) {
     Orders.findAll().then((orders) => {
-      res.status(200).json({
-        message: 'Order found', orders
-      });
+      if (orders.length === 0) {
+        res.status(404).json({ message: 'No order in the database for now, please check later' });
+      } else {
+        res.status(200).json({
+          message: 'Order found', orders
+        });
+      }
+    }).catch(() => {
+      res.status(500).send({ message: 'Oops! My bad, something at my end' });
     });
   }
   /**
@@ -75,7 +91,15 @@ class OrderController {
       { returning: true, where: { id } }
     )
       .then(([rows, [updatedOrder]]) => {
-        res.status(200).json({ message: 'update succesful', rows, updatedOrder });
+        if (!rows || !updatedOrder) {
+          res.status(404).send({ message: 'Can\'t update order, Order not found in the database' });
+        } else if (moment().isAfter(updatedOrder.expires)) {
+          res.status(406).json({ message: 'Sorry you cant edit this order again, it has expires' });
+        } else {
+          res.status(200).json({ message: 'update succesful', rows, updatedOrder });
+        }
+      }).catch(() => {
+        res.status(500).send({ message: 'Oops! My bad, something at my end' });
       });
   }
 }

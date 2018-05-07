@@ -3,24 +3,11 @@ export default (sequelize, DataTypes) => {
     mealName: {
       type: DataTypes.STRING,
       unique: true,
-      allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    mealAvatar: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    description: DataTypes.TEXT,
+    mealAvatar: DataTypes.STRING,
+    price: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
   });
   return Meal;
 };

@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs';
 
 
 import User from '../services/User';
-import Validation from '../helpers/Validation';
 import Authentication from '../helpers/Authentication';
 
 dotenv.config();
@@ -14,7 +13,7 @@ const salt = bcrypt.genSaltSync(10);
  *
  * @class
  */
-export default class UserControllers {
+class UserControllers {
   /**
  * @description: controls a user's registration
  * through route POST: api/v1/user/signup
@@ -33,10 +32,10 @@ export default class UserControllers {
       phoneNumber
     } = req.body;
     const hashedPassword = bcrypt.hashSync(password, salt);
-    if (/^[a-zA-Z]{8,30}$/.test(username) === false) {
-      res.status(400).json({ message: 'Username should contain only letters and must have between 8-30 characters' });
+    if (/^[a-zA-Z][a-zA-Z0-9]{3,30}$/.test(username) === false) {
+      res.json({ message: 'Invalid username, username can only be alphanumeric starting with letters' });
     } else if (/^[0-9]{11,}$/.test(phoneNumber) === false) {
-      res.status(400).json({ message: 'Phone number should not contain letters and should be valid' });
+      res.json({ message: 'Phone number should not contain letters and should be valid' });
     } else {
       User.findUser(username, (checkedUser) => {
         if (checkedUser.length !== 0) {
@@ -50,9 +49,9 @@ export default class UserControllers {
                 message: 'Registration successful',
                 user: {
                   id: users.id,
-                  username: users.username,
-                  email: users.email,
-                  role: users.role,
+                  username,
+                  email,
+                  role: users.role
                 }
               });
             } else if (typeof users === 'string') {
@@ -82,7 +81,8 @@ export default class UserControllers {
       } else if (bcrypt.compareSync(password, users[0].password)) {
         const token = Authentication.createToken({
           username: users[0].username,
-          id: users[0].id
+          id: users[0].id,
+          role: users[0].role
         });
         res.status(200).json({
           message: 'You are now logged in',
@@ -94,12 +94,9 @@ export default class UserControllers {
           }
         });
       } else {
-        res.status(401).json({ message: 'Incorrect password' });
-      }
-      if (Validation.hasInternalServerError(users)) {
-        res.status(500).json(Validation.sendInternalServerError());
+        res.status(401).json({ message: 'username or password incorrect' });
       }
     });
   }
 }
-
+export default UserControllers;

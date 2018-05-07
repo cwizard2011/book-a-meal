@@ -3,6 +3,7 @@ module.exports = {
     queryInterface.createTable('Menus', {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
@@ -20,9 +21,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      userId: Sequelize.INTEGER,
+      date: {
+        type: Sequelize.DATE,
+        allowNull: false,
       }
     }),
   down: queryInterface/* , Sequelize */ => queryInterface.dropTable('Menus')

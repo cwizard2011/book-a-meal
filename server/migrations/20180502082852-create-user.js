@@ -33,7 +33,8 @@ module.exports = {
       password: Sequelize.STRING,
       role: {
         type: Sequelize.ENUM,
-        values: ['user', 'admin', 'disabled']
+        values: ['user', 'admin'],
+        defaultValue: 'user',
       },
       phoneNumber: {
         type: Sequelize.STRING,

@@ -19,7 +19,8 @@ export default (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     role: {
       type: DataTypes.ENUM,
-      values: ['user', 'admin', 'disabled']
+      values: ['user', 'admin'],
+      defaultValue: 'user',
     },
     phoneNumber: {
       type: DataTypes.STRING,

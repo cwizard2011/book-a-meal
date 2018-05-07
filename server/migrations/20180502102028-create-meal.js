@@ -10,20 +10,10 @@ module.exports = {
       mealName: {
         type: Sequelize.STRING,
         unique: true,
-        allowNull: false,
       },
-      description: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      mealAvatar: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      price: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
+      description: Sequelize.TEXT,
+      mealAvatar: Sequelize.STRING,
+      price: Sequelize.STRING,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -32,10 +22,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
+      userId: Sequelize.INTEGER,
     }),
   down: queryInterface/* , Sequelize */ =>
     queryInterface.dropTable('Meals'),
