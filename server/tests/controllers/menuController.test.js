@@ -86,7 +86,7 @@ describe('Menu controller', () => {
         .expect(201);
       
       expect(res.body).to.have.property('message');
-      expect(res.body).to.have.property('menus');
+      expect(res.body).to.have.property('menu');
       expect(res.body.message)
         .to.equal('Menu created');
     });
@@ -102,7 +102,7 @@ describe('Menu controller', () => {
       expect(res.body).to.have.property('message');
       expect(res.body).to.not.have.property('menus');
       expect(res.body.message)
-        .to.equal('Menu Name cannot be empty, please enter menu name');
+        .to.equal('menu Name cannot be empty, please enter menu name');
     });
     it('should not post a menu without user Id', async () => {
       const res = await request(app)
