@@ -103,22 +103,14 @@
     color: grey;
     margin-left: 35%;
 }
-.table-div {
-    margin-left: 10%;
-    background: floralwhite;
-    border-radius: 20px;
-    margin-top: 10%;
-    padding: 5%;
-    margin-bottom: 5%;
-    min-height: 500px;
+table {
+    padding: 0;
 }
-
 table {
     border-collapse: collapse;
     font-family: arial, sans-serif;
-    width: 70%;
-    min-height: 400px;
-    margin-left: 1%;
+    width: 300px;
+    min-height: 300px;
     background: whitesmoke;  
 }
 .table-marg{
@@ -132,7 +124,7 @@ th {
     padding: 3px;
     min-width: 100px;
     text-align: center;
-    height: 25px;
+    height: 10px;
 }
 tr:nth-child(even) {
     background-color: #e0e0d1;
@@ -183,24 +175,13 @@ and (max-width: 500px) {
     }
     td {
         font-size: 8px;
-        height: 50px;
-        padding: 1px;
-        max-width: 1px;
     }
     th {
         padding: 1px;
         font-size: 12px;
     }
     table{
-        width: 100%;
-    }
-    .table-div {
-        margin-left: 10%;
-        background: floralwhite;
-        border-radius: 20px;
-        margin-top: 10%;
-        padding: 5%;
-        width: 100%
+        width: 200px;
     }
 }
 
@@ -239,20 +220,13 @@ and (max-width: 767px) {
         text-align: center;
     }
     table {
-        margin-left: 18%;  
+        margin-left: 5%;  
     }
     th {
         font-size: 12px
     }
     td {
         font-size: 10px
-    }
-    .table-div {
-        margin-left: 10%;
-        background: floralwhite;
-        border-radius: 20px;
-        margin-top: 10%;
-        padding: 2%;
     }
     
 }
@@ -299,13 +273,6 @@ and (max-width: 640px) {
     td {
         font-size: 10px
     }
-    .table-div {
-        margin-left: 10%;
-        background: floralwhite;
-        border-radius: 20px;
-        margin-top: 10%;
-        padding: 2%;
-    }
     
 }
 @media only screen and (min-width: 768px)
@@ -339,12 +306,6 @@ and (max-width: 1020px) {
     .order-now {
         width:100px;
     }
-    .table-div {
-        margin-left: 10%;
-        background: floralwhite;
-        border-radius: 20px;
-        padding: 2%;
-    }
 }
 @media only screen and (min-width: 1024px){
     table {
@@ -372,11 +333,5 @@ and (max-width: 1020px) {
     }
     .main-head {
         font-size: 1.5em;
-    }
-    .table-div {
-        margin-left: 10%;
-        background: floralwhite;
-        border-radius: 20px;
-        padding: 2%;
     }
 }
