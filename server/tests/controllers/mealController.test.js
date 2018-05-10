@@ -54,7 +54,7 @@ describe('Meal controller', () => {
         .set('token', adminToken)
         .expect(200);
       expect(res.body.message).to.equal('Meal found');
-      expect(res.body).to.have.property('meals')
+      expect(res.body).to.have.property('meals');
     });
   });
   describe('GET /api/v1/meals/:mealId', () => {
@@ -65,11 +65,9 @@ describe('Meal controller', () => {
         .set('Accept', 'application/json')
         .set('token', adminToken)
         .expect(404);
-      
       expect(res.body).to.have.property('message');
       expect(res.body).to.not.have.property('meals');
       expect(res.body.message).to.equal('Can\'t get meal, meal not in database');
-
     });
     it('should return meal with valid id', async () => {
       const mealId = 1;
@@ -170,7 +168,7 @@ describe('Meal controller', () => {
       expect(res.body).to.have.property('message');
       expect(res.body).to.not.have.property('meals');
       expect(res.body.message)
-        .to.equal('Price should only contain digits, please enter a valid price');
+        .to.equal('Price should only contain 2-5 digits, please enter a valid price');
     });
     it('should not post a meal with no meal description', async () => {
       const res = await request(app)
@@ -189,6 +187,66 @@ describe('Meal controller', () => {
       expect(res.body).to.not.have.property('meals');
       expect(res.body.message)
         .to.equal('description cannot be empty, please enter description');
+    });
+    it('should not post an existing meal', async () => {
+      const res = await request(app)
+        .post('/api/v1/meals')
+        .set('Accept', 'application/json')
+        .set('token', adminToken)
+        .send({
+          mealName: 'Jollof Rice',
+          description: 'Nigerian best food',
+          mealAvatar: 'rice image',
+          price: 500,
+          userId: 1,
+          menuId: 1
+        })
+        .expect(400);
+
+      expect(res.body).to.have.property('message');
+      expect(res.body).to.not.have.property('meals');
+      expect(res.body.message)
+        .to.equal('meal already existing');
+    });
+    it('should not post a meal with no menu', async () => {
+      const res = await request(app)
+        .post('/api/v1/meals')
+        .set('Accept', 'application/json')
+        .set('token', adminToken)
+        .send({
+          mealName: 'Chicken Rice',
+          description: 'Nigerian best food',
+          mealAvatar: 'rice image',
+          price: 500,
+          userId: 1,
+          menuId: 5
+        })
+        .expect(400);
+
+      expect(res.body).to.have.property('message');
+      expect(res.body).to.not.have.property('meals');
+      expect(res.body.message)
+        .to.equal('Menu not found');
+    });
+    it('should not post a meal with no user', async () => {
+      const res = await request(app)
+        .post('/api/v1/meals')
+        .set('Accept', 'application/json')
+        .set('token', adminToken)
+        .send({
+          mealName: 'Chicken Rice',
+          description: 'Nigerian best food',
+          mealAvatar: 'rice image',
+          price: 500,
+          userId: 7,
+          menuId: 1
+        })
+        .expect(400);
+
+      expect(res.body).to.have.property('message');
+      expect(res.body).to.not.have.property('meals');
+      expect(res.body.message)
+        .to.equal('User not found');
     });
     it('should not post a meal with no meal avatar', async () => {
       const res = await request(app)
@@ -221,11 +279,35 @@ describe('Meal controller', () => {
           userId: 1,
         })
         .expect(400);
-    
       expect(res.body).to.have.property('message');
       expect(res.body).to.not.have.property('meals');
       expect(res.body.message)
-        .to.equal('Price should only contain digits, please enter a valid price');
+        .to.equal('Price should only contain 2-5 digits, please enter a valid price');
+    });
+    it('should post a meal', async () => {
+      const res = await request(app)
+        .post('/api/v1/meals')
+        .set('Accept', 'application/json')
+        .set('token', adminToken)
+        .send({
+          mealName: 'Yam and egg source',
+          price: 800,
+          description: 'Nigerian best food',
+          mealAvatar: 'bdghfhb',
+          userId: 1,
+          menuId: 1,
+        })
+        .expect(201);
+      expect(res.body).to.have.property('message');
+      expect(res.body).to.have.property('meals');
+      expect(res.body.meals).to.have.property('mealName');
+      expect(res.body.meals).to.have.property('description');
+      expect(res.body.meals).to.have.property('mealAvartar');
+      expect(res.body.meals).to.have.property('price');
+      expect(res.body.meals).to.have.property('userId');
+      expect(res.body.meals).to.have.property('menuId');
+      expect(res.body.message)
+        .to.equal('Meal created');
     });
   });
 

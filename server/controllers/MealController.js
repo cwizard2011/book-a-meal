@@ -77,7 +77,7 @@ class MealController {
         } else {
           res.status(400).json({ message: err.errors[0].message });
         }
-      } 
+      }
     });
   }
 

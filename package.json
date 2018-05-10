@@ -57,9 +57,9 @@
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec --require babel-register server/tests/**/*.js --timeout 600000 --exit",
     "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls",
     "babel-node": "babel-node --presets=latest",
-    "test": "NODE_ENV=test mocha --require babel-register server/tests/**/*.js --timeout 100000 --exit",
+    "test-local": "NODE_ENV=test mocha --require babel-register server/tests/**/*.js --timeout 100000 --exit",
     "setup-test": "NODE_ENV=test npm run clean-db && NODE_ENV=test sequelize db:seed:all",
-    "server:test": "npm run setup-test && npm run test"
+    "test": "npm run setup-test && npm run test-local"
   },
   "repository": {
     "type": "git",

@@ -271,4 +271,26 @@ describe('POST /api/v1/auth/signup', () => {
     expect(res.body).to.have.property('message');
     expect(res.body).to.not.have.property('user');
   });
+  it('should post a new user', async () => {
+    const res = await request(app)
+      .post('/api/v1/auth/signup')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'adeola',
+        firstName: 'Peter',
+        lastName: 'Adeola',
+        password: 'hdddbd73464b',
+        email: 'peteradeola@email.com',
+        phoneNumber: '08079851757',
+      })
+      .expect(201);
+    expect(res.body).to.have.a.property('message');
+    expect(res.body).to.have.a.property('user');
+    expect(res.body.message).to.equal('Registration successful');
+    expect(res.body.user).to.have.a.property('username');
+    expect(res.body.user).to.have.a.property('firstName');
+    expect(res.body.user).to.have.a.property('lastName');
+    expect(res.body.user).to.have.a.property('email');
+    expect(res.body.user).to.have.a.property('id');
+  });
 });
