@@ -5,6 +5,7 @@ import database from '../models';
 const validationError = Sequelize.ValidationError;
 
 const Menus = database.Menu;
+const Users = database.User;
 
 /**
  * @class MenuController
@@ -22,31 +23,37 @@ class MenuController {
   static createMenus(req, res) {
     const {
       menuName,
-      meals,
       userId,
     } = req.body;
-    Menus.create({
-      menuName,
-      meals,
-      userId,
-      date: moment()
-    }).then((menus) => {
-      if (menus instanceof Object && menus.dataValues !== undefined) {
-        res.status(201).json({
-          message: 'Menu created',
-          menu: {
-            id: menus.id,
-            menuName,
-            meals,
-            userId,
-            date: menus.date,
+    Users.findOne({
+      where: { id: userId }
+    }).then((user) => {
+      if (user) {
+        return Menus.create({
+          menuName,
+          userId,
+          expires: moment().add(2, 'hours'),
+          date: moment()
+        }).then((menus) => {
+          if (menus instanceof Object && menus.dataValues !== undefined) {
+            res.status(201).json({
+              message: 'Menu created',
+              menu: {
+                id: menus.id,
+                menuName,
+                userId,
+                date: menus.date,
+                expires: menus.expires,
+              }
+            });
+          } else if (typeof menus === 'string') {
+            res.status(400).json({ message: menus });
+          } else {
+            res.status(500).json({ message: 'Sorry, an unexpected error occured' });
           }
         });
-      } else if (typeof menus === 'string') {
-        res.status(400).json({ message: menus });
-      } else {
-        res.status(500).json({ message: 'Sorry, an unexpected error occured' });
       }
+      res.status(404).json({ message: 'User not found' });
     }).catch((err) => {
       if (err instanceof validationError) {
         if (err.errors[0].message === 'menuName must be unique') {

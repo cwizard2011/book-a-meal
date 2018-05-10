@@ -13,6 +13,8 @@ class User {
  * @description: saves user to database
  *
  * @param {String} username username of the user
+ * @param {String} firstName first name of the user
+ * @param {String} lastName surname name of the user
  * @param {String} password password of the user
  * @param {String} email email of the user
  * @param {String} role role of the user admin/user
@@ -21,9 +23,11 @@ class User {
  *
  * @return {Object} savedData
  */
-  static createUser(username, password, email, role, phoneNumber, done) {
+  static createUser(username, firstName, lastName, password, email, role, phoneNumber, done) {
     return Users.create({
       username,
+      firstName,
+      lastName,
       password,
       email,
       role,
@@ -69,16 +73,6 @@ class User {
  *
  * @return {Object} userData
  */
-  static findAdmin(userName, done) {
-    return Users.findAll({
-      where: {
-        username: { $iLike: userName },
-        role: 'admin'
-      }
-    }).then((user) => {
-      done(user);
-    });
-  }
 }
 
 export default User;

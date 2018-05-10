@@ -12,8 +12,10 @@ module.exports = {
         unique: true,
       },
       description: Sequelize.TEXT,
+      expires: Sequelize.DATE,
       mealAvatar: Sequelize.STRING,
-      price: Sequelize.STRING,
+      price: Sequelize.INTEGER,
+      menuId: Sequelize.INTEGER,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

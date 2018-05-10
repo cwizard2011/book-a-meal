@@ -63,32 +63,24 @@ export default class Validation {
   static checkMenuDetails(req, res, next) {
     const {
       menuName,
-      meals,
       userId,
     } = req.body;
 
     if (menuName === undefined) {
       return res.status(400).json({ message: 'menu Name cannot be empty, please enter menu name' });
-    } else if (meals === undefined) {
-      return res.status(400).json({ message: 'meal cannot be empty, please enter meals' });
     } else if (userId === undefined) {
       return res.status(400).json({ message: 'user id cannot be empty, please enter user id' });
     } else if (Number.isNaN(parseInt(userId, 10))) {
       return res.status(400).json({ message: 'User Id must be a number' });
     } else if (!Number.isNaN(parseInt(menuName, 10))) {
       return res.status(400).json({ message: 'menu name must be alphabetical' });
-    } else if (!Array.isArray(meals)) {
-      return res.status(400).json({ message: 'meals must be in array' });
-    }
-    for (let i = 0; i < meals.length; i += 1) {
-      if (meals[i].trim().length === 0) {
-        return res.status(400).json({ message: 'meal cannot be empty, please enter meals' });
-      }
+    } else if (menuName.trim().length > 20) {
+      return res.status(400).json({ message: 'length of meal too long, please shorten it' });
     }
     return next();
   }
   /**
- * @description: validates the menu details
+ * @description: validates the meal details
  *
  * @param {Object} req request object
  * @param {Object} res response object
@@ -103,26 +95,33 @@ export default class Validation {
       userId,
       mealAvatar,
       price,
+      menuId
     } = req.body;
 
-    if (mealName === undefined || mealName.trim().length === 0) {
-      return res.status(400).json({ message: 'meal Name cannot be empty, please enter meal name' });
-    } else if (description === undefined || description.trim().length === 0) {
+    if (description === undefined || description.trim().length === 0) {
       return res.status(400).json({ message: 'description cannot be empty, please enter description' });
+    } else if (mealName === undefined || mealName.trim().length === 0) {
+      return res.status(400).json({ message: 'Meal name cannot be empty, please enter a meal name' });
     } else if (mealAvatar === undefined || mealAvatar.trim().length === 0) {
       return res.status(400).json({ message: 'meal Avatar cannot be empty, please upload image' });
-    } else if (price === undefined || price.trim().length === 0) {
-      return res.status(400).json({ message: 'price cannot be empty, please enter meal price' });
+    } else if (/^[0-9]$/.test(price) === false) {
+      res.status(400).json({ message: 'Price should only contain digits, please enter a valid price' });
     } else if (userId === undefined || userId.trim().length === 0) {
       return res.status(400).json({ message: 'userId cannot be empty, please enter user id' });
+    } else if (menuId === undefined || menuId.trim().length === 0) {
+      return res.status(400).json({ message: 'menuId cannot be empty, please enter user id' });
     } else if (Number.isNaN(parseInt(userId, 10))) {
       return res.status(400).json({ message: 'User Id must be a number' });
-    } else if (!Number.isNaN(parseInt(mealName, 10))) {
-      return res.status(400).json({ message: 'meal name must be string' });
+    } else if (Number.isNaN(parseInt(menuId, 10))) {
+      return res.status(400).json({ message: 'Menu Id must be a number' });
     } else if (!Number.isNaN(parseInt(mealAvatar, 10))) {
       return res.status(400).json({ message: 'meal avatar must be string' });
     } else if (!Number.isNaN(parseInt(description, 10))) {
       return res.status(400).json({ message: 'description must be string' });
+    } else if (mealName.trim().length > 20) {
+      return res.status(400).json({ message: 'meal name is too long, please shorten it to 20 characters including spaces' });
+    } else if (description.trim().length > 100) {
+      return res.status(400).json({ message: 'description is too long, please shorten it to 100 characters' });
     }
     return next();
   }
@@ -137,26 +136,23 @@ export default class Validation {
  */
   static checkOrderDetails(req, res, next) {
     const {
-      mealName,
       mealId,
       userId,
       total,
     } = req.body;
 
-    if (mealName === undefined || mealName.trim().length === 0) {
-      return res.status(400).json({ message: 'meal Name cannot be empty, please enter meal name' });
-    } else if (total === undefined || total.trim().length === 0) {
+    if (total === undefined || total.trim().length === 0) {
       return res.status(400).json({ message: 'total cannot be empty, please enter total' });
     } else if (userId === undefined) {
       return res.status(400).json({ message: 'userId cannot be empty, please enter user id' });
+    } else if (Number.isNaN(parseInt(userId, 10))) {
+      return res.status(400).json({ message: 'User Id must be a number' });
     } else if (Number.isNaN(parseInt(userId, 10))) {
       return res.status(400).json({ message: 'User Id must be a number' });
     } else if (mealId === undefined) {
       return res.status(400).json({ message: 'meal id cannot be empty, please enter meal id' });
     } else if (Number.isNaN(parseInt(mealId, 10))) {
       return res.status(400).json({ message: 'meal id Id must be a number' });
-    } else if (!Number.isNaN(parseInt(mealName, 10))) {
-      return res.status(400).json({ message: 'meal name must be string' });
     }
     return next();
   }

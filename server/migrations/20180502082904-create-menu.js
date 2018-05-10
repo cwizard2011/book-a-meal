@@ -12,7 +12,6 @@ module.exports = {
         unique: true,
         allowNull: false,
       },
-      meals: Sequelize.STRING,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -1,7 +1,7 @@
 import chai from 'chai';
 import request from 'supertest';
 import app from '../../app';
-import { existOrder, newOrder1, newOrder2, invalid1, invalid2, invalid3, invalid4, editOrder } from '../seedData/order';
+
 
 const { expect } = chai;
 

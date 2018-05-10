@@ -20,13 +20,10 @@ module.exports = {
         type: Sequelize.DATE
       },
       userId: Sequelize.INTEGER,
-      total: Sequelize.STRING,
+      total: Sequelize.INTEGER,
       mealId: Sequelize.INTEGER,
+      menuId: Sequelize.INTEGER,
       expires: Sequelize.DATE,
-      date: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      }
     }),
   down: queryInterface/* , Sequelize */ =>
     queryInterface.dropTable('Orders')

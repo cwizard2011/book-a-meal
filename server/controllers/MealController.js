@@ -1,8 +1,11 @@
+import moment from 'moment';
 import Sequelize from 'sequelize';
 import database from '../models';
 
 const validationError = Sequelize.ValidationError;
 const Meals = database.Meal;
+const Users = database.User;
+const Menus = database.Menu;
 /**
  * @class MealController
  */
@@ -23,25 +26,48 @@ class MealController {
       userId,
       mealAvatar,
       price,
+      menuId,
     } = req.body;
-    Meals.create({
-      mealName,
-      description,
-      userId,
-      mealAvatar,
-      price,
-    }).then((meals) => {
-      res.status(201).json({
-        message: 'Meal created',
-        meals: {
-          id: meals.id,
-          mealName,
-          userId,
-          mealAvatar,
-          price,
-          description,
-        }
-      });
+    Users.findOne({
+      where: {
+        id: userId
+      }
+    }).then((user) => {
+      if (user) {
+        return Menus.findOne({
+          where: {
+            id: menuId
+          }
+        }).then((menu) => {
+          if (menu) {
+            return Meals.create({
+              mealName,
+              description,
+              userId,
+              mealAvatar,
+              price,
+              menuId,
+              expires: moment().add(5, 'minutes')
+            }).then((meals) => {
+              res.status(201).json({
+                message: 'Meal created',
+                meals: {
+                  id: meals.id,
+                  mealName,
+                  userId,
+                  mealAvatar,
+                  price,
+                  description,
+                  menuId,
+                  expires: meals.expires
+                }
+              });
+            });
+          }
+          res.status(404).json({ message: 'Menu not found' });
+        });
+      }
+      res.status(404).json({ message: 'User not found' });
     }).catch((err) => {
       if (err instanceof validationError) {
         if (err.errors[0].message === 'mealName must be unique') {
@@ -51,9 +77,7 @@ class MealController {
         } else {
           res.status(400).json({ message: err.errors[0].message });
         }
-      } else {
-        res.json({ err });
-      }
+      } 
     });
   }
 

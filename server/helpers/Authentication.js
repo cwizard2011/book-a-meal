@@ -45,7 +45,7 @@ export default class Authentication {
         return next();
       });
     } else {
-      return res.status(401).json({ message: 'Pls login with your password' });
+      return res.status(401).json({ message: 'Pls login with your username and password' });
     }
   }
 }

@@ -6,12 +6,9 @@ export default (sequelize, DataTypes) => {
     },
     mealId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    total: DataTypes.STRING,
+    menuId: DataTypes.INTEGER,
+    total: DataTypes.INTEGER,
     expires: DataTypes.DATE,
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
   });
   return Order;
 };
