@@ -104,8 +104,8 @@ export default class Validation {
       return res.status(400).json({ message: 'Meal name cannot be empty, please enter a meal name' });
     } else if (mealAvatar === undefined || mealAvatar.trim().length === 0) {
       return res.status(400).json({ message: 'meal Avatar cannot be empty, please upload image' });
-    } else if (/^[0-9]+$/.test(price) === false) {
-      res.status(400).json({ message: 'Price should only contain digits, please enter a valid price' });
+    } else if (/^[0-9]{2,5}/.test(price) === false) {
+      res.status(400).json({ message: 'Price should only contain 2-5 digits, please enter a valid price' });
     } else if (userId === undefined || userId.trim().length === 0) {
       return res.status(400).json({ message: 'userId cannot be empty, please enter user id' });
     } else if (menuId === undefined || menuId.trim().length === 0) {
