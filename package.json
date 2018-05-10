@@ -52,7 +52,8 @@
   "scripts": {
     "start": "babel-node ./server/app.js",
     "clean-db": "sequelize db:migrate:undo:all && sequelize db:migrate",
-    "start:dev": "nodemon --watch app --exec babel-node server/app.js",
+    "load-db-prod": "NODE_ENV=production sequelize db:migrate:undo:all && NODE_ENV=production sequelize db:migrate",
+    "start:dev": "NODE_ENV=development nodemon --watch app --exec babel-node server/app.js",
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec --require babel-register server/tests/**/*.js --timeout 600000 --exit",
     "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls",
     "babel-node": "babel-node --presets=latest",
