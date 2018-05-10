@@ -8,8 +8,13 @@ export default (sequelize, DataTypes) => {
     mealAvatar: DataTypes.STRING,
     price: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    menuId: DataTypes.INTEGER,
     expires: DataTypes.DATE,
   });
+  Meal.associate = (models) => {
+    Meal.belongsTo(models.Menu, {
+      as: 'menu',
+      foreignKey: 'menuId'
+    });
+  };
   return Meal;
 };

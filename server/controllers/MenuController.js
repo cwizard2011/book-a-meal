@@ -25,48 +25,7 @@ class MenuController {
       menuName,
       userId,
     } = req.body;
-    Users.findOne({
-      where: { id: userId }
-    }).then((user) => {
-      if (user) {
-        return Menus.create({
-          menuName,
-          userId,
-          expires: moment().add(2, 'hours'),
-          date: moment()
-        }).then((menus) => {
-          if (menus instanceof Object && menus.dataValues !== undefined) {
-            res.status(201).json({
-              message: 'Menu created',
-              menu: {
-                id: menus.id,
-                menuName,
-                userId,
-                date: menus.date,
-                expires: menus.expires,
-              }
-            });
-          } else if (typeof menus === 'string') {
-            res.status(400).json({ message: menus });
-          } else {
-            res.status(500).json({ message: 'Sorry, an unexpected error occured' });
-          }
-        });
-      }
-      res.status(404).json({ message: 'User not found' });
-    }).catch((err) => {
-      if (err instanceof validationError) {
-        if (err.errors[0].message === 'menuName must be unique') {
-          res.status(400).json({ message: 'menu name already existing' });
-        } else if (err.errors[0].message === '') {
-          res.status(400).json({ message: `${err.errors[0]} must be supplied` });
-        } else {
-          res.status(400).json({ message: err.errors[0].message });
-        }
-      } else {
-        res.json({ err });
-      }
-    });
+   
   }
   /**
    * Get menu

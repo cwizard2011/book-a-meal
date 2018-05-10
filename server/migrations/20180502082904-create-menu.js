@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = {
   up: (queryInterface, Sequelize) =>
     queryInterface.createTable('Menus', {
@@ -7,11 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      menuName: {
-        type: Sequelize.STRING,
-        unique: true,
-        allowNull: false,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -20,11 +17,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId: Sequelize.INTEGER,
       date: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false,
-      }
+        defaultValue: moment().format('MMMM Do YYYY, h:mm:ss a')
+      },
     }),
   down: queryInterface/* , Sequelize */ => queryInterface.dropTable('Menus')
 };

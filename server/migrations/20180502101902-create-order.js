@@ -15,14 +15,28 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      mealId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Meals',
+          key: 'id',
+          as: 'groupId',
+        },
+        onDelete: 'CASCADE'
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+          as: 'userId',
+        }
+      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId: Sequelize.INTEGER,
       total: Sequelize.INTEGER,
-      mealId: Sequelize.INTEGER,
-      menuId: Sequelize.INTEGER,
       expires: Sequelize.DATE,
     }),
   down: queryInterface/* , Sequelize */ =>

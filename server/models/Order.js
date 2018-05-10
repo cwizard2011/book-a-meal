@@ -4,11 +4,19 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true,
     },
-    mealId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    menuId: DataTypes.INTEGER,
     total: DataTypes.INTEGER,
     expires: DataTypes.DATE,
   });
+  Order.associate = (models) => {
+    Order.belongsTo(models.Meal, {
+      as: 'meals',
+      foreignKey: 'mealId'
+    });
+    Order.belongsTo(models.User, {
+      as: 'meals',
+      foreignKey: 'userId'
+    });
+  };
   return Order;
 };
