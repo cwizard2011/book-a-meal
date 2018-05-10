@@ -47,10 +47,10 @@
     ]
   },
   "engines": {
-    "node": "8.11.1"
+    "node": "9.11.1"
   },
   "scripts": {
-    "start": "babel-node ./server/app.js",
+    "start": "NODE_ENV=production babel-node -- server/server.js",
     "clean-db": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "start:dev": "nodemon --watch app --exec babel-node server/app.js",
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec --require babel-register server/tests/**/*.js --timeout 600000 --exit",
