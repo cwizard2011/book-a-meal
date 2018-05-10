@@ -31,8 +31,10 @@ body {
     background-color: white;
     width: 600px;
     margin-bottom: 50px;
+    margin-top: 10%;
     margin-left: 50%;
     padding-bottom: 5%;
+    opacity: 0.92;
 }
 .container{
     display: flex;
@@ -65,6 +67,7 @@ body {
     font-size: 1.5em;
     text-align: center;
     color: black;
+    padding: 1%;
 }
 .sections>h1 {
     font-size: 2em;
@@ -108,7 +111,7 @@ body {
     right: 0;
   }
 .signup-btn {
-    background: #53ff1a;
+    background: green;
     border-radius: 4px;
     color: white;
     cursor: pointer;
@@ -137,6 +140,7 @@ body {
   
   .signup-btn:hover span {
     padding-right: 25px;
+    color: #53ff1a
   }
   
   .signup-btn:hover span:after {
